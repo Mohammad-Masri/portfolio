@@ -7,14 +7,15 @@ import Link from "next/link";
 type IconLinkProps = {
   link: string;
   icon: ReactElement;
+  openNewTab?: boolean;
 };
 
-function IconLink({ link, icon }: IconLinkProps) {
+function IconLink({ link, icon, openNewTab = false }: IconLinkProps) {
   return (
     <Link
       href={link}
       className=" border-[1px] border-[#242A41] rounded-full p-2"
-      target="_blank"
+      target={openNewTab ? "_blank" : "_self"}
     >
       {icon}
     </Link>
@@ -35,14 +36,21 @@ export default function AboutTitle() {
         <IconLink
           link={DATA.PROFILE.linkedin}
           icon={<Icon icon="mdi:linkedin" color="#242A41" width={30} />}
+          openNewTab
         />
         <IconLink
           link={DATA.PROFILE.github}
           icon={<Icon icon="ri:github-line" color="#242A41" width={30} />}
+          openNewTab
         />
         <IconLink
           link={`https://wa.me/${DATA.PROFILE.whatsappNumber}`}
           icon={<Icon icon="ic:baseline-whatsapp" color="#242A41" width={30} />}
+          openNewTab
+        />
+        <IconLink
+          link={`mailto:${DATA.PROFILE.email}`}
+          icon={<Icon icon="mdi:email-send" color="#242A41" width={30} />}
         />
         <IconLink
           link={`tel:${DATA.PROFILE.phoneNumber}`}
