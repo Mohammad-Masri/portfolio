@@ -5,7 +5,7 @@ import AboutPhoto from "./components/about-photo";
 
 export default function About() {
   return (
-    <div className="w-full grid gap-4 grid-cols-2 relative h-[420px] pt-16">
+    <div className="w-full grid gap-4 grid-cols-2 relative h-[600px] pt-16">
       <AboutBackground />
       <AboutTitle />
       <AboutPhoto />
