@@ -12,7 +12,7 @@ export default function NavbarItem({
   label,
   link,
   isActive,
-  textColor = "#242A41",
+  textColor = "white",
 }: NavbarItemProps) {
   const style = {
     backgroundColor: isActive ? "#583FBC" : "#1D2130",
