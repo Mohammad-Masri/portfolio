@@ -14,7 +14,6 @@
     "react-dom": "^18"
   },
   "devDependencies": {
-    "@iconify-icon/react": "^1.0.8",
     "@iconify/react": "^4.1.1",
     "@types/node": "^20",
     "@types/react": "^18",
