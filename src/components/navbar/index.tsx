@@ -4,35 +4,21 @@ import NavbarItem, { NavbarItemProps } from "../navbar-item";
 import PrimaryButton from "../primary-button";
 import NeonText from "../neon-text";
 import DATA from "@/mock";
+import { navbarItems as NIs } from "@/constants";
 
 export default function Navbar() {
-  const [navbarItems, setNavbarItems] = useState<NavbarItemProps[]>([
-    {
-      label: "About",
-      link: "/#about",
-      isActive: true,
-    },
-    {
-      label: "Experience",
-      link: "/#experience",
-      isActive: false,
-    },
-    {
-      label: "Skills",
-      link: "/#skills",
-      isActive: false,
-    },
-    {
-      label: "Projects",
-      link: "/#projects",
-      isActive: false,
-    },
-    {
-      label: "Contact",
-      link: "/#contact",
-      isActive: false,
-    },
-  ]);
+  const [navbarItems, setNavbarItems] = useState<NavbarItemProps[]>(
+    NIs.map((i, index) => {
+      let isActive = false;
+      if (index == 0) isActive = true;
+      return {
+        id: i.id,
+        label: i.label,
+        link: `/#${i.id}`,
+        isActive,
+      };
+    })
+  );
 
   const handleClickNavbarItem = (index: number) => {
     const newNavbarItems = navbarItems.map((nbi, i) => {
@@ -67,6 +53,7 @@ export default function Navbar() {
             {navbarItems.map((item, index) => (
               <div key={index} onClick={() => handleClickNavbarItem(index)}>
                 <NavbarItem
+                  id={item.id}
                   label={item.label}
                   link={item.link}
                   isActive={item.isActive}

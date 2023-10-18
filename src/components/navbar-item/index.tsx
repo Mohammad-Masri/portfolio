@@ -2,6 +2,7 @@ import Link from "next/link";
 import React from "react";
 
 export type NavbarItemProps = {
+  id: string;
   label: string;
   link: string;
   isActive: boolean;

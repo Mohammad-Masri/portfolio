@@ -10,7 +10,10 @@ export default function RightSection() {
       </h3>
       <div className="flex flex-col gap-10">
         {DATA.SPECIALIZATIONS.map((s, index) => (
-          <div key={index}>
+          <div
+            key={index}
+            className={`${index % 2 == 0 ? "rotate-3" : "-rotate-3"}`}
+          >
             <SpecializationCard number={index + 1} specialization={s} />
           </div>
         ))}

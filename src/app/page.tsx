@@ -1,4 +1,5 @@
 import About from "./sections/about";
+import Experiences from "./sections/experiences";
 import Specializations from "./sections/specializations";
 
 export default function Home() {
@@ -6,6 +7,7 @@ export default function Home() {
     <main className="flex flex-col min-h-screen w-full">
       <About />
       <Specializations />
+      <Experiences />
     </main>
   );
 }
