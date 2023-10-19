@@ -1,4 +1,6 @@
+import { SkillsEnum } from "@/constants";
 import Profile from "@/dto/profile";
+import Skill from "@/dto/skill";
 
 export const PROFILE: Profile = new Profile(
   "Mohammed",
@@ -9,5 +11,56 @@ export const PROFILE: Profile = new Profile(
   "https://www.linkedin.com/in/mohammad-masri-421a831aa/",
   "https://github.com/Mohammad-Masri",
   "+971558730223",
-  "+971558730223"
+  "+971558730223",
+  [
+    new Skill(SkillsEnum.Javascript, "skill-icons:javascript"),
+    new Skill(SkillsEnum.Typescript, "skill-icons:typescript"),
+    new Skill(SkillsEnum.Java, "skill-icons:java-light"),
+    new Skill(SkillsEnum.HTML, "skill-icons:html"),
+    new Skill(SkillsEnum.CSS, "skill-icons:css"),
+    new Skill(SkillsEnum.ReactJs, "skill-icons:react-light"),
+    new Skill(SkillsEnum.NextJs, "devicon:nextjs-wordmark"),
+    new Skill(SkillsEnum.MUI, "skill-icons:materialui-light"),
+    new Skill(SkillsEnum.TailwindCSS, "skill-icons:tailwindcss-light"),
+    new Skill(SkillsEnum.Responsive, "mdi:responsive"),
+    new Skill(SkillsEnum.ReactRedux, "skill-icons:redux"),
+    new Skill(SkillsEnum.ApexCharts, "flat-color-icons:line-chart"),
+    new Skill(SkillsEnum.FarmerMotion, "tdesign:animation"),
+    new Skill(SkillsEnum.RestAPI, "eos-icons:api"),
+    new Skill(SkillsEnum.ObjectOrientedProgramming, "fluent-mdl2:split-object"),
+    new Skill(
+      `${SkillsEnum.SocketIO} & ${SkillsEnum.Websocket}`,
+      "devicon:socketio"
+    ),
+    new Skill(SkillsEnum.Security, "mdi:security"),
+    new Skill(SkillsEnum.JWT, "logos:jwt-icon"),
+    new Skill(SkillsEnum.NodeJs, "skill-icons:nodejs-light"),
+    new Skill(SkillsEnum.ExpressJs, "skill-icons:expressjs-light"),
+    new Skill(SkillsEnum.NestJs, "skill-icons:nestjs-light"),
+    new Skill(SkillsEnum.SpringBoot, "devicon:spring"),
+    new Skill(SkillsEnum.SQL, "tabler:sql"),
+    new Skill(SkillsEnum.NoSQL, "fxemoji:document"),
+    new Skill(SkillsEnum.MongoDB, "vscode-icons:file-type-mongo"),
+    new Skill(SkillsEnum.MySQL, "skill-icons:mysql-light"),
+    new Skill(SkillsEnum.Mongoose, "devicon:mongoose-wordmark"),
+    new Skill(SkillsEnum.Sequelize, "skill-icons:sequelize-light"),
+    new Skill(SkillsEnum.SwaggerUI, "devicon:swagger"),
+    new Skill(SkillsEnum.PayPalPayment, "logos:paypal"),
+    new Skill(SkillsEnum.Stripe, "cib:cc-stripe"),
+    new Skill(SkillsEnum.StrapiCMS, "logos:strapi-icon"),
+    new Skill(SkillsEnum.Redis, "skill-icons:redis-light"),
+    new Skill(SkillsEnum.Caching, "octicon:cache-16"),
+    new Skill(SkillsEnum.RabbitMQ, "logos:rabbitmq-icon"),
+    new Skill(SkillsEnum.Microservice, "carbon:microservices-1"),
+    new Skill(SkillsEnum.ReactNative, "tabler:brand-react-native"),
+    new Skill(SkillsEnum.Git, "skill-icons:git"),
+    new Skill(SkillsEnum.Github, "devicon:github"),
+    new Skill(SkillsEnum.Gitlab, "devicon:gitlab"),
+    new Skill(SkillsEnum.Nginx, "skill-icons:nginx"),
+    new Skill(SkillsEnum.AWS, "skill-icons:aws-light"),
+    new Skill(SkillsEnum.AWSEC2, "logos:aws-ec2"),
+    new Skill(SkillsEnum.AWSS3, "logos:aws-s3"),
+    new Skill(SkillsEnum.LoadBalance, "tabler:load-balancer"),
+    new Skill(SkillsEnum.Docker, "skill-icons:docker"),
+  ]
 );

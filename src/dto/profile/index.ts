@@ -1,3 +1,5 @@
+import Skill from "../skill";
+
 export default class Profile {
   firstName: string;
   lastName: string;
@@ -9,6 +11,7 @@ export default class Profile {
   github: string;
   phoneNumber: string;
   whatsappNumber: string;
+  skills: Skill[];
 
   constructor(
     firstName: string,
@@ -19,7 +22,8 @@ export default class Profile {
     linkedin: string,
     github: string,
     phoneNumber: string,
-    whatsappNumber: string
+    whatsappNumber: string,
+    skills: Skill[]
   ) {
     this.firstName = firstName;
     this.lastName = lastName;
@@ -31,5 +35,6 @@ export default class Profile {
     this.github = github;
     this.phoneNumber = phoneNumber;
     this.whatsappNumber = whatsappNumber;
+    this.skills = skills;
   }
 }
