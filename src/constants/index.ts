@@ -13,6 +13,10 @@ export const navbarItems = [
     label: "About",
   },
   {
+    id: HomePageSectionIds.Skills,
+    label: "Skills",
+  },
+  {
     id: HomePageSectionIds.Specialize,
     label: "Specialize",
   },
@@ -20,10 +24,7 @@ export const navbarItems = [
     id: HomePageSectionIds.Experience,
     label: "Experience",
   },
-  {
-    id: HomePageSectionIds.Skills,
-    label: "Skills",
-  },
+
   {
     id: HomePageSectionIds.Projects,
     label: "Projects",
