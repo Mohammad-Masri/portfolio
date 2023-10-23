@@ -19,5 +19,6 @@ const config: Config = {
   animation: {
     shine: "shine 3s infinite", // Define the 'shine' animation
   },
+  darkMode: "class",
 };
 export default config;

@@ -3,6 +3,9 @@ import DATA from "@/mock";
 import React, { ReactElement } from "react";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
+import { useSelector } from "react-redux";
+import { selectTheme } from "@/redux/slices/ThemeSlice";
+import { Moods } from "@/constants";
 
 type IconLinkProps = {
   link: string;
@@ -23,9 +26,11 @@ function IconLink({ link, icon, openNewTab = false }: IconLinkProps) {
 }
 
 export default function AboutTitle() {
+  const theme = useSelector(selectTheme);
+
   return (
     <div className="flex flex-col justify-center items-center gap-10">
-      <h1 className="text-[#1D2130] text-4xl text-left">
+      <h1 className="text-[#1D2130] dark:text-white text-4xl text-left">
         HEY! <span className="font-bold">I'm {DATA.PROFILE.firstName},</span>
         <br />
         <span className="font-bold text-[#583FBC]">
@@ -35,26 +40,56 @@ export default function AboutTitle() {
       <div className="flex flex-row gap-3">
         <IconLink
           link={DATA.PROFILE.linkedin}
-          icon={<Icon icon="mdi:linkedin" color="#242A41" width={30} />}
+          icon={
+            <Icon
+              icon="mdi:linkedin"
+              color={theme == Moods.Light ? "#242A41" : "white"}
+              width={30}
+            />
+          }
           openNewTab
         />
         <IconLink
           link={DATA.PROFILE.github}
-          icon={<Icon icon="ri:github-line" color="#242A41" width={30} />}
+          icon={
+            <Icon
+              icon="ri:github-line"
+              color={theme == Moods.Light ? "#242A41" : "white"}
+              width={30}
+            />
+          }
           openNewTab
         />
         <IconLink
           link={`https://wa.me/${DATA.PROFILE.whatsappNumber}`}
-          icon={<Icon icon="ic:baseline-whatsapp" color="#242A41" width={30} />}
+          icon={
+            <Icon
+              icon="ic:baseline-whatsapp"
+              color={theme == Moods.Light ? "#242A41" : "white"}
+              width={30}
+            />
+          }
           openNewTab
         />
         <IconLink
           link={`mailto:${DATA.PROFILE.email}`}
-          icon={<Icon icon="mdi:email-send" color="#242A41" width={30} />}
+          icon={
+            <Icon
+              icon="mdi:email-send"
+              color={theme == Moods.Light ? "#242A41" : "white"}
+              width={30}
+            />
+          }
         />
         <IconLink
           link={`tel:${DATA.PROFILE.phoneNumber}`}
-          icon={<Icon icon="ic:baseline-phone" color="#242A41" width={30} />}
+          icon={
+            <Icon
+              icon="ic:baseline-phone"
+              color={theme == Moods.Light ? "#242A41" : "white"}
+              width={30}
+            />
+          }
         />
       </div>
     </div>

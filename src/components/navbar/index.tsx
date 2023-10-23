@@ -4,9 +4,14 @@ import NavbarItem, { NavbarItemProps } from "../navbar-item";
 import PrimaryButton from "../primary-button";
 import NeonText from "../neon-text";
 import DATA from "@/mock";
-import { navbarItems as NIs } from "@/constants";
+import { Moods, navbarItems as NIs } from "@/constants";
+import MoodButton from "./components/mood-button";
+import { useSelector } from "react-redux";
+import { selectTheme } from "@/redux/slices/ThemeSlice";
 
 export default function Navbar() {
+  const theme = useSelector(selectTheme);
+
   const [navbarItems, setNavbarItems] = useState<NavbarItemProps[]>(
     NIs.map((i, index) => {
       let isActive = false;
@@ -32,7 +37,7 @@ export default function Navbar() {
 
   return (
     <div className="sticky top-0 left-0 z-10">
-      <div className="absolute -top-4 left-0 w-full h-[100px] blur bg-white -z-10"></div>
+      <div className="absolute -top-4 left-0 w-full h-[100px] blur bg-white dark:bg-slate-900 -z-10"></div>
       <div className="py-2 px-28 flex flex-row items-center justify-between">
         <h1 className="text-[#242A41] text-[24px] font-semibold">
           <NeonText
@@ -57,11 +62,15 @@ export default function Navbar() {
                   label={item.label}
                   link={item.link}
                   isActive={item.isActive}
+                  textColor={theme == Moods.Light ? "white" : "#43495B"}
+                  inactiveBackgroundColor={
+                    theme == Moods.Light ? "#1D2130" : "white"
+                  }
                 />
               </div>
             ))}
           </ul>
-          <div>Dark/Light</div>
+          <MoodButton />
 
           <PrimaryButton
             label="Download CV"

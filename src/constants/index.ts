@@ -1,3 +1,8 @@
+export enum Moods {
+  Light = "light",
+  Dark = "dark",
+}
+
 export enum HomePageSectionIds {
   About = "about",
   Specialize = "specialize",

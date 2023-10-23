@@ -28,8 +28,8 @@ export default function ExperienceCard({ experience, backgroundColor }: Props) {
 
   return (
     <div
-      className="flex flex-col px-6 pt-10 rounded-3xl shadow-2xl gap-3 relative overflow-hidden -z-10"
-      style={{ backgroundColor: hexToRgba(backgroundColor, 0.6) }}
+      className="flex flex-col px-6 pt-10 rounded-3xl shadow-2xl gap-3 relative overflow-hidden z-0"
+      style={{ backgroundColor: hexToRgba(backgroundColor, 0.7) }}
     >
       <div
         className="absolute -top-12 -left-12 h-32 w-32 rounded-full"
@@ -60,7 +60,7 @@ export default function ExperienceCard({ experience, backgroundColor }: Props) {
         </Link>
       </h3>
       <div className="flex flex-col -mt-3 z-10">
-        <div className="flex flex-row gap-3 text-[#585F6F]">
+        <div className="flex flex-row gap-3 text-[#585F6F] dark:text-gray-200">
           <p>{moment.utc(experience.startDate.date).format("D MMM YYYY")}</p>
           <p>to</p>
           <p>
@@ -92,25 +92,27 @@ export default function ExperienceCard({ experience, backgroundColor }: Props) {
         ))}
       </div>
 
-      {experience.assetURL ? (
-        <div className="z-10 w-full grid grid-cols-2">
-          {responsibilities}
+      <div className="text-black dark:text-white z-10 w-full">
+        {experience.assetURL ? (
+          <div className=" grid grid-cols-2">
+            {responsibilities}
 
-          <div className="flex flex-col items-center justify-end">
-            {experience.assetURL && (
-              <Image
-                src={experience.assetURL}
-                alt={experience.position}
-                height={720}
-                width={1024}
-                className="w-full object-cover"
-              />
-            )}
+            <div className="flex flex-col items-center justify-end">
+              {experience.assetURL && (
+                <Image
+                  src={experience.assetURL}
+                  alt={experience.position}
+                  height={720}
+                  width={1024}
+                  className="w-full object-cover"
+                />
+              )}
+            </div>
           </div>
-        </div>
-      ) : (
-        <div className="z-10 w-full">{responsibilities}</div>
-      )}
+        ) : (
+          <>{responsibilities}</>
+        )}
+      </div>
     </div>
   );
 }

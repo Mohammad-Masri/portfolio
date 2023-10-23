@@ -7,16 +7,20 @@ export type NavbarItemProps = {
   link: string;
   isActive: boolean;
   textColor?: string;
+  activeBackgroundColor?: string;
+  inactiveBackgroundColor?: string;
 };
 
 export default function NavbarItem({
   label,
   link,
   isActive,
-  textColor = "white",
+  textColor,
+  activeBackgroundColor = "#583FBC",
+  inactiveBackgroundColor = "#1D2130",
 }: NavbarItemProps) {
   const style = {
-    backgroundColor: isActive ? "#583FBC" : "#1D2130",
+    backgroundColor: isActive ? activeBackgroundColor : inactiveBackgroundColor,
   };
   return (
     <Link className={`relative text-[17px] text-center group`} href={link}>

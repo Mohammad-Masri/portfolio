@@ -1,15 +1,22 @@
 import Specialization from "@/dto/specialization";
-import Image from "next/image";
 import React from "react";
 
 type Props = {
   number: number;
   specialization: Specialization;
+  backgroundColor?: string;
 };
 
-export default function SpecializationCard({ number, specialization }: Props) {
+export default function SpecializationCard({
+  number,
+  specialization,
+  backgroundColor = "#EDF0F9",
+}: Props) {
   return (
-    <div className=" p-6 border-2 border-[#585F6F] rounded-md bg-[#EDF0F9] relative overflow-hidden">
+    <div
+      className=" p-6 border-2 border-[#585F6F] dark:border-white rounded-md relative overflow-hidden z-0"
+      style={{ backgroundColor }}
+    >
       <div className="absolute -top-8 -left-8 h-16 w-16 bg-[#D9DFF2] rounded-full"></div>
       <div className="absolute -bottom-16 -left-10 h-32 w-32 bg-[#d9dff2c3] rounded-full"></div>
       <div className="absolute -bottom-12 left-16 h-20 w-20 bg-[#D9DFF2] rounded-full"></div>

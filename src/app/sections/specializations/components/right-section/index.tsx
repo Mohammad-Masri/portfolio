@@ -9,15 +9,12 @@ export default function RightSection() {
       id={HomePageSectionIds.Specialize}
       className="flex flex-col gap-4 px-10"
     >
-      <h3 className="text-[#242A41] text-[42px] font-semibold">
+      <h3 className="text-[#242A41] dark:text-white text-[42px] font-semibold">
         I specialize in
       </h3>
-      <div className="flex flex-col gap-10">
+      <div className="flex flex-col gap-5 overflow-y-scroll">
         {DATA.SPECIALIZATIONS.map((s, index) => (
-          <div
-            key={index}
-            className={`${index % 2 == 0 ? "rotate-3" : "-rotate-3"}`}
-          >
+          <div key={index}>
             <SpecializationCard number={index + 1} specialization={s} />
           </div>
         ))}

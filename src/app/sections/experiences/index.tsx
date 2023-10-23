@@ -21,8 +21,10 @@ export default function Experiences() {
       id={HomePageSectionIds.Experience}
       className="flex flex-col justify-center items-center pt-40"
     >
-      <h1 className="text-[#242A41] text-[56px] font-bold">Experiences</h1>
-      <p className="text-[#585F6F] text-[18px] font-bold">
+      <h1 className="text-[#242A41] dark:text-white text-[56px] font-bold">
+        Experiences
+      </h1>
+      <p className="text-[#79839a] dark:text-gray-400 text-[18px] font-bold">
         Total:{" "}
         <span className="font-semibold">{formatDaysAsYearsMonths(days)}</span>
       </p>
