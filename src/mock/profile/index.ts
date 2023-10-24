@@ -27,6 +27,7 @@ export const PROFILE: Profile = new Profile(
     new Skill(SkillsEnum.ApexCharts, "flat-color-icons:line-chart"),
     new Skill(SkillsEnum.FarmerMotion, "tdesign:animation"),
     new Skill(SkillsEnum.RestAPI, "eos-icons:api"),
+    new Skill(SkillsEnum.GraphQL, "skill-icons:graphql-light"),
     new Skill(SkillsEnum.ObjectOrientedProgramming, "fluent-mdl2:split-object"),
     new Skill(
       `${SkillsEnum.SocketIO} & ${SkillsEnum.Websocket}`,

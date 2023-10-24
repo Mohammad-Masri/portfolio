@@ -1,3 +1,4 @@
+"use client";
 import SkillChip from "@/components/skill-chip";
 import Experience from "@/dto/experience";
 import { hexToRgba } from "@/helpers/color.helper";
@@ -5,17 +6,38 @@ import {
   calculateDaysBetweenDates,
   formatDaysAsYearsMonths,
 } from "@/helpers/date.helpers";
+import { motion, Variants, useInView } from "framer-motion";
 import moment from "moment";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useRef } from "react";
 
 type Props = {
   experience: Experience;
   backgroundColor: string;
+  index: number;
 };
 
-export default function ExperienceCard({ experience, backgroundColor }: Props) {
+export default function ExperienceCard({
+  experience,
+  backgroundColor,
+  index,
+}: Props) {
+  const ref = useRef(null);
+  const isInView = useInView(ref);
+  const variants: Variants = {
+    hide: {
+      x: `${index % 2 == 0 ? "+" : "-"}100%`,
+    },
+    show: {
+      x: "0",
+      transition: {
+        bounce: 0.4,
+        duration: 1,
+      },
+    },
+  };
+
   const responsibilities = (
     <ul className="list-disc pl-5 pb-10">
       {experience.responsibilities.map((r, i) => (
@@ -27,9 +49,13 @@ export default function ExperienceCard({ experience, backgroundColor }: Props) {
   );
 
   return (
-    <div
+    <motion.div
+      ref={ref}
       className="flex flex-col px-6 pt-10 rounded-3xl shadow-2xl gap-3 relative overflow-hidden z-0"
       style={{ backgroundColor: hexToRgba(backgroundColor, 0.7) }}
+      initial={isInView ? "hide" : "show"}
+      animate={isInView ? "show" : "hide"}
+      variants={variants}
     >
       <div
         className="absolute -top-12 -left-12 h-32 w-32 rounded-full"
@@ -113,6 +139,6 @@ export default function ExperienceCard({ experience, backgroundColor }: Props) {
           <>{responsibilities}</>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 }

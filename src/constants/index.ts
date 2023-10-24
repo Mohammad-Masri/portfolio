@@ -58,6 +58,7 @@ export enum SkillsEnum {
   ObjectOrientedProgramming = "Object Oriented Programming",
   OOP = "OOP",
   RestAPI = "Rest API",
+  GraphQL = "GraphQL",
   Websocket = "Websocket",
   SocketIO = "Socket IO",
   Security = "Security",

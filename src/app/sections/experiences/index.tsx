@@ -34,6 +34,7 @@ export default function Experiences() {
             <ExperienceCard
               experience={e}
               backgroundColor={index % 2 == 0 ? "#7DE0EA" : "#CBC1F6"}
+              index={index}
             />
           </div>
         ))}

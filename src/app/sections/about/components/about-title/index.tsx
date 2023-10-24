@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useSelector } from "react-redux";
 import { selectTheme } from "@/redux/slices/ThemeSlice";
 import { Moods } from "@/constants";
+import { Variants, motion } from "framer-motion";
 
 type IconLinkProps = {
   link: string;
@@ -17,7 +18,7 @@ function IconLink({ link, icon, openNewTab = false }: IconLinkProps) {
   return (
     <Link
       href={link}
-      className=" border-[1px] border-[#242A41] rounded-full p-2"
+      className=" border-[1px] border-[#242A41] rounded-full p-2 transform duration-200 ease-in-out hover:translate-y-4"
       target={openNewTab ? "_blank" : "_self"}
     >
       {icon}
@@ -28,8 +29,27 @@ function IconLink({ link, icon, openNewTab = false }: IconLinkProps) {
 export default function AboutTitle() {
   const theme = useSelector(selectTheme);
 
+  const variants: Variants = {
+    hide: {
+      scale: 0,
+    },
+    show: {
+      scale: 1,
+      transition: {
+        type: "spring",
+        bounce: 0.4,
+        duration: 0.8,
+      },
+    },
+  };
+
   return (
-    <div className="flex flex-col justify-center items-center gap-10">
+    <motion.div
+      className="flex flex-col justify-center items-center gap-10"
+      initial="hide"
+      animate="show"
+      variants={variants}
+    >
       <h1 className="text-[#1D2130] dark:text-white text-4xl text-left">
         HEY! <span className="font-bold">I'm {DATA.PROFILE.firstName},</span>
         <br />
@@ -92,6 +112,6 @@ export default function AboutTitle() {
           }
         />
       </div>
-    </div>
+    </motion.div>
   );
 }

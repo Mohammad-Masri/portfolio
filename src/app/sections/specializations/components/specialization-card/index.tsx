@@ -1,5 +1,7 @@
+"use client";
 import Specialization from "@/dto/specialization";
-import React from "react";
+import { motion, Variants, useInView } from "framer-motion";
+import React, { useRef } from "react";
 
 type Props = {
   number: number;
@@ -12,10 +14,28 @@ export default function SpecializationCard({
   specialization,
   backgroundColor = "#EDF0F9",
 }: Props) {
+  const ref = useRef(null);
+  const isInView = useInView(ref);
+  const variants: Variants = {
+    hide: {
+      scale: 0.7,
+    },
+    show: {
+      scale: 1,
+      transition: {
+        bounce: 0.4,
+        duration: 1,
+      },
+    },
+  };
   return (
-    <div
+    <motion.div
+      ref={ref}
       className=" p-6 border-2 border-[#585F6F] dark:border-white rounded-md relative overflow-hidden z-0"
       style={{ backgroundColor }}
+      initial={isInView ? "hide" : "show"}
+      animate={isInView ? "show" : "hide"}
+      variants={variants}
     >
       <div className="absolute -top-8 -left-8 h-16 w-16 bg-[#D9DFF2] rounded-full"></div>
       <div className="absolute -bottom-16 -left-10 h-32 w-32 bg-[#d9dff2c3] rounded-full"></div>
@@ -31,6 +51,6 @@ export default function SpecializationCard({
           {specialization.details}
         </p>
       </div>
-    </div>
+    </motion.div>
   );
 }
