@@ -19,7 +19,7 @@ export default function Experiences() {
   return (
     <div
       id={HomePageSectionIds.Experience}
-      className="flex flex-col justify-center items-center pt-40"
+      className="flex flex-col justify-center items-center"
     >
       <h1 className="text-[#242A41] dark:text-white text-[56px] font-bold">
         Experiences

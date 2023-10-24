@@ -5,6 +5,7 @@ export default class Profile {
   lastName: string;
   fullName: string;
   position: string;
+  summary: string[];
   email: string;
   profilePhotoLink: string;
   linkedin: string;
@@ -17,6 +18,7 @@ export default class Profile {
     firstName: string,
     lastName: string,
     position: string,
+    summary: string[],
     email: string,
     profilePhotoLink: string,
     linkedin: string,
@@ -29,6 +31,7 @@ export default class Profile {
     this.lastName = lastName;
     this.fullName = `${this.firstName} ${this.lastName}`;
     this.position = position;
+    this.summary = summary;
     this.email = email;
     this.profilePhotoLink = profilePhotoLink;
     this.linkedin = linkedin;

@@ -4,6 +4,7 @@ export enum Moods {
 }
 
 export enum HomePageSectionIds {
+  Header = "header",
   About = "about",
   Specialize = "specialize",
   Experience = "experience",
@@ -13,6 +14,10 @@ export enum HomePageSectionIds {
 }
 
 export const navbarItems = [
+  {
+    id: HomePageSectionIds.Header,
+    label: "Header",
+  },
   {
     id: HomePageSectionIds.About,
     label: "About",
@@ -82,6 +87,7 @@ export enum SkillsEnum {
   MongoDB = "MongoDB",
   MySQL = "MySQL",
   ReactNative = "React Native",
+  Cryptography = "Cryptography",
   Git = "Git",
   Github = "Github",
   Gitlab = "Gitlab",

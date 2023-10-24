@@ -14,7 +14,7 @@ export default function LeftSide() {
         Skills
       </h3>
 
-      <div className="flex flex-row h-[700px]">
+      <div className="flex flex-row h-[700px] border-y-2 border-y-[#583FBC] shadow-y-md">
         {skillsArrays.map((sa, index1) => (
           <Slider
             key={index1}

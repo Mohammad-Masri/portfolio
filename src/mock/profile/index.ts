@@ -1,4 +1,5 @@
 import { SkillsEnum } from "@/constants";
+import Education from "@/dto/education";
 import Profile from "@/dto/profile";
 import Skill from "@/dto/skill";
 
@@ -6,6 +7,11 @@ export const PROFILE: Profile = new Profile(
   "Mohammed",
   "Al-Masri",
   "Full Stack Developer",
+  [
+    "I am an accomplished Full Stack Developer with strong expertise in backend and frontend development. My backend skills include architecting robust server-side solutions, focusing on data security, scalability, high performance, and clean code, particularly in Node.js and database management. On the front end, I excel in creating engaging user interfaces using HTML5, CSS3, JavaScript, and modern frameworks like React and Next.js.",
+    "I have proficiency in DevOps practices and a proven track record of leadership, successfully managing cross-functional teams and delivering outstanding web applications. My commitment to innovation drives me to achieve top-notch results in every project.",
+    "In addition to my professional experience, I am a proactive self-learner with proficiency in Java, Spring Boot, and React Native. These self-acquired skills complement my technical repertoire and allow me to adapt swiftly to evolving technologies.",
+  ],
   "mouhammed.almasri.cm7@gmail.com",
   "/assets/images/profile.png",
   "https://www.linkedin.com/in/mohammad-masri-421a831aa/",
@@ -37,7 +43,7 @@ export const PROFILE: Profile = new Profile(
     new Skill(SkillsEnum.JWT, "logos:jwt-icon"),
     new Skill(SkillsEnum.NodeJs, "skill-icons:nodejs-light"),
     new Skill(SkillsEnum.ExpressJs, "skill-icons:expressjs-light"),
-    new Skill(SkillsEnum.NestJs, "skill-icons:nestjs-light"),
+    new Skill(SkillsEnum.NestJs, "skill-icons:nextjs-light"),
     new Skill(SkillsEnum.SpringBoot, "devicon:spring"),
     new Skill(SkillsEnum.SQL, "tabler:sql"),
     new Skill(SkillsEnum.NoSQL, "fxemoji:document"),
@@ -54,6 +60,7 @@ export const PROFILE: Profile = new Profile(
     new Skill(SkillsEnum.RabbitMQ, "logos:rabbitmq-icon"),
     new Skill(SkillsEnum.Microservice, "carbon:microservices-1"),
     new Skill(SkillsEnum.ReactNative, "tabler:brand-react-native"),
+    new Skill(SkillsEnum.Cryptography, "flat-color-icons:data-encryption"),
     new Skill(SkillsEnum.Git, "skill-icons:git"),
     new Skill(SkillsEnum.Github, "devicon:github"),
     new Skill(SkillsEnum.Gitlab, "devicon:gitlab"),
