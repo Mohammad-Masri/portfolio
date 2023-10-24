@@ -4,6 +4,7 @@ import Experiences from "./sections/experiences";
 import Specializations from "./sections/specializations";
 import Summary from "./sections/summary";
 import Contact from "./sections/contact";
+import Footer from "./sections/footer";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <Specializations />
       <Experiences />
       <Contact />
+      <Footer />
     </main>
   );
 }

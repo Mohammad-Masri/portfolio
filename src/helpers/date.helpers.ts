@@ -1,3 +1,5 @@
+import moment from "moment";
+
 export const calculateDaysBetweenDates = (date1: Date, date2: Date | null) => {
   const d1 = new Date(date1);
   let d2 = new Date();
@@ -34,4 +36,8 @@ export const formatDaysAsYearsMonths = (days: number) => {
   }
 
   return result;
+};
+
+export const getCurrentYear = () => {
+  return moment().format("YYYY").toString();
 };
