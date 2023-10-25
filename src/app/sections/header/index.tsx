@@ -1,18 +1,18 @@
 import React from "react";
-import AboutTitle from "./components/about-title";
-import AboutBackground from "./components/about-background";
-import AboutPhoto from "./components/about-photo";
+import HeaderTitle from "./components/header-title";
+import HeaderBackground from "./components/header-background";
+import HeaderPhoto from "./components/header-photo";
 import { HomePageSectionIds } from "@/constants";
 
 export default function Header() {
   return (
     <div
       id={HomePageSectionIds.Header}
-      className="w-full grid gap-4 grid-cols-2 relative h-[600px] pt-16"
+      className="w-full flex flex-col lg:grid grid-cols-2 relative  h-auto lg:h-[600px] pt-16 px-10"
     >
-      <AboutBackground />
-      <AboutTitle />
-      <AboutPhoto />
+      <HeaderBackground />
+      <HeaderTitle />
+      <HeaderPhoto />
     </div>
   );
 }

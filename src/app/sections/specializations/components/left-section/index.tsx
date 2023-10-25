@@ -9,7 +9,7 @@ export default function LeftSide() {
   const skillsArrays = divideArray(DATA.PROFILE.skills, 4);
 
   return (
-    <div id={HomePageSectionIds.Skills} className="flex flex-col gap-4 px-10 ">
+    <div id={HomePageSectionIds.Skills} className="flex flex-col gap-4">
       <h3 className="text-[#242A41] dark:text-white text-[42px] font-semibold">
         Skills
       </h3>

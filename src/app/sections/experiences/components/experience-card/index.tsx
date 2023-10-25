@@ -120,10 +120,10 @@ export default function ExperienceCard({
 
       <div className="text-black dark:text-white z-10 w-full">
         {experience.assetURL ? (
-          <div className=" grid grid-cols-2">
+          <div className="flex flex-col md:grid md:grid-cols-2">
             {responsibilities}
 
-            <div className="flex flex-col items-center justify-end">
+            <div className="hidden md:flex flex-col items-center justify-end">
               {experience.assetURL && (
                 <Image
                   src={experience.assetURL}

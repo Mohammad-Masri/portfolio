@@ -2,9 +2,9 @@ import DATA from "@/mock";
 import Image from "next/image";
 import React from "react";
 
-export default function AboutPhoto() {
+export default function HeaderPhoto() {
   return (
-    <div className=" flex flex-row justify-center relative">
+    <div className=" hidden lg:flex flex-row justify-center relative  ">
       <div className="absolute top-0 w-full flex justify-center">
         <Image
           src={DATA.ABOUT_SECTION.aboutSquaresLink}

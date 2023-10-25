@@ -19,7 +19,7 @@ export default function Experiences() {
   return (
     <div
       id={HomePageSectionIds.Experience}
-      className="flex flex-col justify-center items-center"
+      className="flex flex-col justify-center items-center px-4 lg:px-20"
     >
       <h1 className="text-[#242A41] dark:text-white text-[56px] font-bold">
         Experiences
@@ -28,7 +28,7 @@ export default function Experiences() {
         Total:{" "}
         <span className="font-semibold">{formatDaysAsYearsMonths(days)}</span>
       </p>
-      <div className="flex flex-col justify-center items-center gap-10 mt-10 w-[80%]">
+      <div className="flex flex-col justify-center items-center gap-10 mt-10">
         {DATA.EXPERIENCES.map((e, index) => (
           <div key={index} className="w-full">
             <ExperienceCard

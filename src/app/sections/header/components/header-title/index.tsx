@@ -26,7 +26,7 @@ function IconLink({ link, icon, openNewTab = false }: IconLinkProps) {
   );
 }
 
-export default function AboutTitle() {
+export default function HeaderTitle() {
   const theme = useSelector(selectTheme);
 
   const variants: Variants = {

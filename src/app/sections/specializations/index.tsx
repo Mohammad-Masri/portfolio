@@ -4,7 +4,7 @@ import LeftSide from "./components/left-section";
 
 export default function Specializations() {
   return (
-    <div className="grid grid-cols-2">
+    <div className="flex flex-col gap-20 lg:grid lg:grid-cols-2 px-4 lg:px-20">
       <LeftSide />
       <RightSection />
     </div>

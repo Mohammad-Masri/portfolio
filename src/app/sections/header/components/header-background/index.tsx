@@ -2,7 +2,7 @@ import DATA from "@/mock";
 import Image from "next/image";
 import React from "react";
 
-export default function AboutBackground() {
+export default function HeaderBackground() {
   return (
     <div className="absolute left-0 top-0  w-screen -z-10 flex">
       <div className="w-full flex flex-row items-center justify-center">

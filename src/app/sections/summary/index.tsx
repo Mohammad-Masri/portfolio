@@ -6,7 +6,7 @@ export default function Summary() {
   return (
     <div
       id={HomePageSectionIds.About}
-      className="w-full flex flex-col gap-4 px-10"
+      className="w-full flex flex-col gap-4 px-4 lg:px-20"
     >
       <h3 className="text-[#242A41] dark:text-white text-[42px] font-semibold">
         Summary

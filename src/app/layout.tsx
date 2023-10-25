@@ -20,7 +20,8 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={
-          inter.className + " overflow-x-hidden bg-white dark:bg-slate-950"
+          inter.className +
+          " overflow-x-hidden bg-white dark:bg-slate-950 transition-all ease-in-out duration-1000"
         }
       >
         <Providers>

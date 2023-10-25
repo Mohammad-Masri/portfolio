@@ -38,7 +38,7 @@ export default function Navbar() {
   return (
     <div className="sticky top-0 left-0 z-10">
       <div className="absolute -top-4 left-0 w-full h-[100px] blur bg-white dark:bg-slate-900 -z-10"></div>
-      <div className="py-2 px-28 flex flex-row items-center justify-between">
+      <div className="py-2 px-6 lg:px-12 flex flex-row items-center justify-between">
         <h1 className="text-[#242A41] text-[24px] font-semibold transform duration-200 ease-in-out hover:rotate-[360deg]">
           <NeonText
             text={DATA.PROFILE.fullName}
@@ -53,8 +53,8 @@ export default function Navbar() {
             ]}
           />
         </h1>
-        <div className="flex flex-row gap-10 items-center ">
-          <ul className="flex flex-row gap-4">
+        <div className="flex flex-row gap-5 lg:gap-10 items-center ">
+          <ul className="hidden lg:flex flex-row gap-4">
             {navbarItems.map((item, index) => (
               <div key={index} onClick={() => handleClickNavbarItem(index)}>
                 <NavbarItem
@@ -72,12 +72,7 @@ export default function Navbar() {
           </ul>
           <MoodButton />
 
-          <PrimaryButton
-            label="Download CV"
-            textColor="#FFF"
-            backgroundColor1="#583FBC"
-            backgroundColor2="#242A41"
-          />
+          <button className="flex lg:hidden">menu</button>
         </div>
       </div>
     </div>
