@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 
 import ThemeSlice from "./slices/ThemeSlice";
+import MobileMenuSlice from "./slices/MobileMenuSlice";
 
 const reducer = {
   theme: ThemeSlice,
+  mobileMenu: MobileMenuSlice,
 };
 
 export const store = configureStore({

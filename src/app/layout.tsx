@@ -3,6 +3,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Providers } from "@/redux/provider";
+import MobileMenu from "@/components/mobile-menu";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,6 +28,7 @@ export default function RootLayout({
       >
         <Providers>
           <Navbar />
+          <MobileMenu />
           {children}
         </Providers>
       </body>
