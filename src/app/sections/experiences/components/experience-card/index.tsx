@@ -27,7 +27,7 @@ export default function ExperienceCard({
   const isInView = useInView(ref);
   const variants: Variants = {
     hide: {
-      x: `${index % 2 == 0 ? "+" : "-"}100%`,
+      x: `${index % 2 == 0 ? "" : "-"}100%`,
     },
     show: {
       x: "0",
@@ -39,7 +39,7 @@ export default function ExperienceCard({
   };
 
   const responsibilities = (
-    <ul className="list-disc pl-5 pb-10">
+    <ul className="list-disc pl-5 pb-10 text-[14px]">
       {experience.responsibilities.map((r, i) => (
         <li className="list-item" key={i}>
           {r}
@@ -74,7 +74,7 @@ export default function ExperienceCard({
         style={{ backgroundColor }}
       ></div>
 
-      <h3 className="text-[#242F65] text-[40px] font-semibold z-10">
+      <h3 className="text-[#242F65] text-[30px] md:text-[40px] font-semibold z-10">
         {experience.position} @
         <Link
           href={experience.company.link}
@@ -86,28 +86,23 @@ export default function ExperienceCard({
         </Link>
       </h3>
       <div className="flex flex-col -mt-3 z-10">
-        <div className="flex flex-row gap-3 text-[#585F6F] dark:text-gray-200">
-          <p>{moment.utc(experience.startDate.date).format("D MMM YYYY")}</p>
-          <p>to</p>
-          <p>
-            {experience.endDate.isPresent ? (
-              "Present"
-            ) : (
-              <>{moment.utc(experience.endDate.date).format("D MMM YYYY")}</>
-            )}
-          </p>
-          <p>|</p>
-          <p>
-            {formatDaysAsYearsMonths(
-              calculateDaysBetweenDates(
-                experience.startDate.date == null
-                  ? new Date()
-                  : experience.startDate.date,
-                experience.endDate.isPresent ? null : experience.endDate.date
-              )
-            )}
-          </p>
-        </div>
+        <p className="text-[14px] text-[#585F6F] dark:text-gray-200">
+          {moment.utc(experience.startDate.date).format("D MMM YYYY")} to{" "}
+          {experience.endDate.isPresent ? (
+            "Present"
+          ) : (
+            <>{moment.utc(experience.endDate.date).format("D MMM YYYY")}</>
+          )}{" "}
+          |{" "}
+          {formatDaysAsYearsMonths(
+            calculateDaysBetweenDates(
+              experience.startDate.date == null
+                ? new Date()
+                : experience.startDate.date,
+              experience.endDate.isPresent ? null : experience.endDate.date
+            )
+          )}
+        </p>
       </div>
 
       <div className="flex flex-wrap gap-3 z-10">

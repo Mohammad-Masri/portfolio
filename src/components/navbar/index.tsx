@@ -37,7 +37,7 @@ export default function Navbar() {
 
   return (
     <div className="sticky top-0 left-0 z-10">
-      <div className="absolute -top-4 left-0 w-full h-[100px] blur bg-white dark:bg-slate-900 -z-10"></div>
+      <div className="absolute -top-4 left-0 w-full h-[150%] blur bg-white dark:bg-slate-900 -z-10"></div>
       <div className="py-2 px-6 lg:px-12 flex flex-row items-center justify-between">
         <h1 className="text-[#242A41] text-[24px] font-semibold transform duration-200 ease-in-out hover:rotate-[360deg]">
           <NeonText
