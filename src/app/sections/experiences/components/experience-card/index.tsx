@@ -27,10 +27,12 @@ export default function ExperienceCard({
   const isInView = useInView(ref);
   const variants: Variants = {
     hide: {
-      x: `${index % 2 == 0 ? "" : "-"}100%`,
+      // x: `${index % 2 == 0 ? "" : "-"}100%`,
+      opacity: 0,
     },
     show: {
-      x: "0",
+      // x: "0",
+      opacity: 1,
       transition: {
         bounce: 0.4,
         duration: 1,
@@ -51,7 +53,7 @@ export default function ExperienceCard({
   return (
     <motion.div
       ref={ref}
-      className="flex flex-col px-6 pt-10 rounded-3xl shadow-2xl gap-3 relative overflow-hidden z-0"
+      className="flex flex-col px-6 pt-10 rounded-3xl shadow-2xl gap-3 relative overflow-hidden h-full z-0"
       style={{ backgroundColor: hexToRgba(backgroundColor, 0.7) }}
       initial={isInView ? "hide" : "show"}
       animate={isInView ? "show" : "hide"}
@@ -125,7 +127,7 @@ export default function ExperienceCard({
                   alt={experience.position}
                   height={720}
                   width={1024}
-                  className="w-full object-cover"
+                  className="w-full object-cover max-w-md"
                 />
               )}
             </div>

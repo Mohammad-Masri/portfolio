@@ -46,8 +46,8 @@ export default function Contact() {
           </Link>
         </div>
       </div>
-      <div className="relative text-white dark:text-black bg-[#583FBC] dark:bg-[#7ED9E2]  rounded-md p-6 flex flex-col sm:flex-row md:flex-col lg:flex-col xl:flex-row gap-3 justify-between lg:justify-center items-center">
-        <div className="absolute bg-[#7ED9E2] dark:bg-[#583FBC] rounded-md h-full w-full -z-10 -rotate-2"></div>
+      <div className="relative  text-white dark:text-black bg-[#583FBC] dark:bg-[#7ED9E2]  rounded-md p-6 flex flex-col sm:flex-row md:flex-col lg:flex-col xl:flex-row gap-3 justify-between lg:justify-center items-center">
+        <div className="absolute bg-[#7ED9E2] dark:bg-[#583FBC] rounded-md h-full w-full top-0 left-0 -z-10 -rotate-2"></div>
         <div className="flex flex-col self-auto lg:self-start">
           <p className="text-[24px]">Try me out, risk free!</p>
           <p className="text-[12px]">Let's build something great together</p>

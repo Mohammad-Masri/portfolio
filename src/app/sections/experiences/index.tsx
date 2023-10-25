@@ -19,7 +19,7 @@ export default function Experiences() {
   return (
     <div
       id={HomePageSectionIds.Experience}
-      className="flex flex-col justify-center items-center px-4 lg:px-20 overflow-hidden"
+      className="flex flex-col justify-center items-center px-4 lg:px-20"
     >
       <h1 className="text-[#242A41] dark:text-white text-[40px]  sm:text-[56px] font-bold">
         Experiences
@@ -30,7 +30,7 @@ export default function Experiences() {
       </p>
       <div className="flex flex-col justify-center items-center gap-10 mt-10">
         {DATA.EXPERIENCES.map((e, index) => (
-          <div key={index} className="w-full">
+          <div key={index} className="w-full xl:w-[80%]">
             <ExperienceCard
               experience={e}
               backgroundColor={index % 2 == 0 ? "#7DE0EA" : "#CBC1F6"}
