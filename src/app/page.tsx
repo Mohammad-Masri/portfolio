@@ -8,7 +8,7 @@ import Footer from "./sections/footer";
 
 export default function Home() {
   return (
-    <main className="flex flex-col gap-20 min-h-screen w-full">
+    <main className="flex flex-col gap-20">
       <Header />
       <Summary />
       <Education />
