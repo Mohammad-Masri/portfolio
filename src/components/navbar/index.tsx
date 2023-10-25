@@ -1,45 +1,18 @@
-"use client";
-import React, { useState } from "react";
-import NavbarItem, { NavbarItemProps } from "../navbar-item";
-import PrimaryButton from "../primary-button";
+import React from "react";
+
 import NeonText from "../neon-text";
 import DATA from "@/mock";
-import { Moods, navbarItems as NIs } from "@/constants";
 import MoodButton from "./components/mood-button";
-import { useSelector } from "react-redux";
-import { selectTheme } from "@/redux/slices/ThemeSlice";
+
+import DesktopMenu from "./components/desktop-menu";
+import MobileMenuButton from "./components/mobile-menu-button";
 
 export default function Navbar() {
-  const theme = useSelector(selectTheme);
-
-  const [navbarItems, setNavbarItems] = useState<NavbarItemProps[]>(
-    NIs.map((i, index) => {
-      let isActive = false;
-      if (index == 0) isActive = true;
-      return {
-        id: i.id,
-        label: i.label,
-        link: `/#${i.id}`,
-        isActive,
-      };
-    })
-  );
-
-  const handleClickNavbarItem = (index: number) => {
-    const newNavbarItems = navbarItems.map((nbi, i) => {
-      if (i == index) nbi.isActive = true;
-      else nbi.isActive = false;
-      return nbi;
-    });
-
-    setNavbarItems(newNavbarItems);
-  };
-
   return (
-    <div className="sticky top-0 left-0 z-10">
+    <div className="sticky top-0 left-0 z-20">
       <div className="absolute -top-4 left-0 w-full h-[150%] blur bg-white dark:bg-slate-900 -z-10"></div>
       <div className="py-2 px-6 lg:px-12 flex flex-row items-center justify-between">
-        <h1 className="text-[#242A41] text-[24px] font-semibold transform duration-200 ease-in-out hover:rotate-[360deg]">
+        <h1 className="hidden lg:flex text-[#242A41] text-[24px] font-semibold transform duration-200 ease-in-out hover:rotate-[360deg]">
           <NeonText
             text={DATA.PROFILE.fullName}
             textColors={["#FFF"]}
@@ -53,26 +26,10 @@ export default function Navbar() {
             ]}
           />
         </h1>
+        <MobileMenuButton />
         <div className="flex flex-row gap-5 lg:gap-10 items-center ">
-          <ul className="hidden lg:flex flex-row gap-4">
-            {navbarItems.map((item, index) => (
-              <div key={index} onClick={() => handleClickNavbarItem(index)}>
-                <NavbarItem
-                  id={item.id}
-                  label={item.label}
-                  link={item.link}
-                  isActive={item.isActive}
-                  textColor={theme == Moods.Light ? "white" : "#43495B"}
-                  inactiveBackgroundColor={
-                    theme == Moods.Light ? "#1D2130" : "white"
-                  }
-                />
-              </div>
-            ))}
-          </ul>
+          <DesktopMenu />
           <MoodButton />
-
-          <button className="flex lg:hidden">menu</button>
         </div>
       </div>
     </div>
