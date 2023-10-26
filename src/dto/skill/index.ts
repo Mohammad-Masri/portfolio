@@ -1,14 +1,5 @@
-export default class Skill {
+export default interface Skill {
   label: string;
   icon?: string | undefined;
   isFeatured?: boolean;
-  constructor(
-    label: string,
-    icon: string | undefined = undefined,
-    isFeatured: boolean = false
-  ) {
-    this.label = label;
-    this.icon = icon;
-    this.isFeatured = isFeatured;
-  }
 }
