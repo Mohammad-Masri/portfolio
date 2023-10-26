@@ -14,7 +14,7 @@ export default function Navbar() {
       <div className="py-2 px-6 lg:px-12 flex flex-row items-center justify-between">
         <h1 className="hidden lg:flex text-[#242A41] text-[24px] font-semibold transform duration-200 ease-in-out hover:rotate-[360deg]">
           <NeonText
-            text={DATA.PROFILE.fullName}
+            text={`${DATA.PROFILE.firstName} ${DATA.PROFILE.lastName}`}
             textColors={["#FFF"]}
             shadowColors={[
               "#583FBC",

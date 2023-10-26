@@ -13,6 +13,13 @@ export enum HomePageSectionIds {
   Contact = "contact",
 }
 
+export interface MenuItem {
+  id: string;
+  label: string;
+  link: string;
+  isActive: boolean;
+}
+
 export const navbarItems = [
   {
     id: HomePageSectionIds.Header,

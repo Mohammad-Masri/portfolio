@@ -33,7 +33,7 @@ export default function Contact() {
           </Link>
           <Link
             href="/assets/pdf/resume.pdf"
-            download={`${DATA.PROFILE.fullName}_${DATA.PROFILE.position}_Resume.pdf`}
+            download={`${DATA.PROFILE.firstName} ${DATA.PROFILE.lastName}_${DATA.PROFILE.position}_Resume.pdf`}
             target="_blank"
             className="bg-[#1D2130] dark:bg-white px-6 py-2 rounded-lg text-white dark:text-[#242A41] flex flex-row gap-5 justify-center items-center"
           >
