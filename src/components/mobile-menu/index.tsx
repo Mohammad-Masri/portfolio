@@ -34,7 +34,7 @@ export default function MobileMenu() {
     show: {
       // width: "100%",
       // height: "100%",
-      zIndex: 10,
+      zIndex: 20,
       opacity: 1,
       transition: {
         bounce: 0.4,
