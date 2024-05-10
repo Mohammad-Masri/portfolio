@@ -7,6 +7,32 @@ import moment from "moment";
 export const EXPERIENCES: Experience[] = [
   {
     position: "Full Stack Developer",
+    company: { name: "Onpassive", link: "https://www.onpassive.com/" },
+    startDate: {
+      date: moment({
+        year: 2024,
+        month: 0,
+        day: 16,
+      }).toDate(),
+      isPresent: false,
+    },
+    endDate: {
+      date: null,
+      isPresent: true,
+    },
+    responsibilities: [
+      "Developed the backend and the frontend infrastructure for the Web conferencing app (O-Connect) using WebRTC, GraphQL server, and Socket-io",
+    ],
+    skills: [
+      { label: SkillsEnum.Typescript },
+      { label: SkillsEnum.NodeJs },
+      { label: SkillsEnum.WebRTC },
+      { label: SkillsEnum.ReactJs },
+    ],
+    assetURL: null,
+  },
+  {
+    position: "Full Stack Developer",
     company: { name: "Step By Tech", link: "https://www.stepbytech.com" },
     startDate: {
       date: moment({
@@ -17,8 +43,12 @@ export const EXPERIENCES: Experience[] = [
       isPresent: false,
     },
     endDate: {
-      date: null,
-      isPresent: true,
+      date: moment({
+        year: 2024,
+        month: 0,
+        day: 9,
+      }).toDate(),
+      isPresent: false,
     },
     responsibilities: [
       "Developed the backend infrastructure for the Content Management System (CMS) and Content Server (CS) of the Vidnik App.",

@@ -24,7 +24,7 @@ export default function DesktopMenu() {
         <div key={index} onClick={() => handleClickNavbarItem(item.id)}>
           <NavbarItem
             menuItem={item}
-            textColor={theme == Moods.Light ? "white" : "#43495B"}
+            textColor={"white"}
             inactiveBackgroundColor={theme == Moods.Light ? "#1D2130" : "white"}
           />
         </div>

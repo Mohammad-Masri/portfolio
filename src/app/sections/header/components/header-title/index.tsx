@@ -18,7 +18,7 @@ function IconLink({ link, icon, openNewTab = false }: IconLinkProps) {
   return (
     <Link
       href={link}
-      className=" border-[1px] border-[#242A41] rounded-full p-2 transform duration-200 ease-in-out hover:translate-y-4"
+      className=" border-[1px] border-[#242A41] rounded-full p-2 transform duration-200 ease-in-out hover:translate-y-2"
       target={openNewTab ? "_blank" : "_self"}
     >
       {icon}
