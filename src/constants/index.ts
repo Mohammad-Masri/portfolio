@@ -100,6 +100,7 @@ export enum SkillsEnum {
   Gitlab = "Gitlab",
   Nginx = "Nginx",
   AWS = "AWS (Amazon Web Services)",
+  WebRTC = "WebRTC",
   AWSEC2 = "AWS EC2",
   AWSS3 = "AWS S3",
   LoadBalance = "Load Balance",

@@ -13,7 +13,7 @@ export const PROFILE: Profile = {
     "In addition to my professional experience, I am a proactive self-learner with proficiency in Java, Spring Boot, and React Native. These self-acquired skills complement my technical repertoire and allow me to adapt swiftly to evolving technologies.",
   ],
   email: "mouhammed.almasri.cm7@gmail.com",
-  profilePhotoLink: "/assets/images/profile.png",
+  profilePhotoLink: "/assets/images/my-photo.png",
   linkedin: "https://www.linkedin.com/in/mohammad-masri-421a831aa/",
   github: "https://github.com/Mohammad-Masri",
   phoneNumber: "+971558730223",
