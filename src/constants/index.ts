@@ -105,6 +105,7 @@ export enum SkillsEnum {
   AWSS3 = "AWS S3",
   LoadBalance = "Load Balance",
   Docker = "Docker",
+  Kafka = "Kafka",
   SelfLearning = "Self Learning",
   Organized = "Organized",
   Arabic = "Arabic",

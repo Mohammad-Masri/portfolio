@@ -76,5 +76,6 @@ export const PROFILE: Profile = {
     { label: SkillsEnum.AWSS3, icon: "logos:aws-s3" },
     { label: SkillsEnum.LoadBalance, icon: "tabler:load-balancer" },
     { label: SkillsEnum.Docker, icon: "skill-icons:docker" },
+    { label: SkillsEnum.Kafka, icon: "skill-icons:kafka" },
   ],
 };
