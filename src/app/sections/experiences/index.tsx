@@ -6,6 +6,7 @@ import {
   calculateDaysBetweenDates,
   formatDaysAsYearsMonths,
 } from "@/helpers/date.helpers";
+import TotalExperienceInfo from "./components/total-experience-info";
 
 export default function Experiences() {
   const startDate = DATA.EXPERIENCES[DATA.EXPERIENCES.length - 1].startDate;
@@ -25,8 +26,7 @@ export default function Experiences() {
         Experiences
       </h1>
       <p className="text-[#79839a] dark:text-gray-400 text-[18px] font-bold">
-        Total:{" "}
-        <span className="font-semibold">{formatDaysAsYearsMonths(days)}</span>
+        <TotalExperienceInfo days={days} />
       </p>
       <div className="flex flex-col justify-center items-center gap-10 mt-10">
         {DATA.EXPERIENCES.map((e, index) => (
