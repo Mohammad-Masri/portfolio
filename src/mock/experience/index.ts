@@ -21,7 +21,10 @@ export const EXPERIENCES: Experience[] = [
       isPresent: true,
     },
     responsibilities: [
-      "Developed the backend and the frontend infrastructure for the Web conferencing app (O-Connect) using WebRTC, GraphQL server, and Socket-io",
+      "Full Stack Development: Engineered the backend and frontend infrastructure for the web conferencing app (O-Connect), leveraging Node.js for server-side functionality and React.js for an interactive user interface.",
+
+      "Real-Time Communication: Implemented WebRTC and Socket.io to enable seamless real-time communication, enhancing user engagement and experience.",
+      "GraphQL Integration: Designed and integrated GraphQL APIs to facilitate efficient data querying, improving performance and reducing payload size for client applications.",
     ],
     skills: [
       { label: SkillsEnum.Typescript },
@@ -29,7 +32,8 @@ export const EXPERIENCES: Experience[] = [
       { label: SkillsEnum.WebRTC },
       { label: SkillsEnum.ReactJs },
     ],
-    assetURL: null,
+
+    assetURL: "/assets/images/web-development-3.png",
   },
   {
     position: "Full Stack Developer",
