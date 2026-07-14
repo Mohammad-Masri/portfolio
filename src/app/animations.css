@@ -1,4 +1,5 @@
-/* Lightweight motion and rendering optimizations. All effects use compositor-friendly properties. */
+/* Lightweight motion and rendering optimizations.
+   The portfolio stays server-rendered; animations use transform/opacity-free compositor work where possible. */
 
 .scroll-progress {
   position: fixed;
@@ -33,7 +34,11 @@
   content: "";
   opacity: 0;
   transform: scale(0.94);
-  transition: opacity 180ms ease, transform 180ms ease, background-color 180ms ease, border-color 180ms ease;
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease;
 }
 
 .nav-link:hover {
@@ -92,7 +97,8 @@
   contain: strict;
 }
 
-/* Large fixed blurred layers are expensive to repaint. Radial gradients provide the same depth without blur filters. */
+/* Large fixed blurred layers are expensive to repaint.
+   Radial gradients provide the same depth without blur filters. */
 .ambient-glow {
   width: 48rem;
   height: 48rem;
@@ -113,7 +119,8 @@
 .hero-orbit,
 .marquee-track,
 .float-slow,
-.float-slow-reverse {
+.float-slow-reverse,
+.contact-orb {
   backface-visibility: hidden;
   transform: translateZ(0);
 }
@@ -124,6 +131,121 @@
 
 .marquee:hover .marquee-track {
   animation-play-state: paused;
+}
+
+/* Keep the lower half visually consistent with the brighter upper sections. */
+#skills,
+#skills + section,
+#contact {
+  position: relative;
+  isolation: isolate;
+}
+
+#skills::before,
+#skills + section::before,
+#contact::before {
+  position: absolute;
+  inset: 2rem -18vw;
+  z-index: -2;
+  background:
+    radial-gradient(circle at 18% 45%, rgba(16, 185, 129, 0.07), transparent 30rem),
+    radial-gradient(circle at 82% 55%, rgba(34, 211, 238, 0.045), transparent 28rem);
+  content: "";
+  pointer-events: none;
+}
+
+/* Premium motion details without extra JavaScript. */
+.text-gradient {
+  background-size: 180% 180%;
+  animation: gradient-drift 8s ease-in-out infinite;
+}
+
+.availability-pill {
+  animation: availability-glow 4s ease-in-out infinite;
+}
+
+.contact-orb {
+  animation: orb-breathe 8s ease-in-out infinite;
+}
+
+.capability-card,
+.project-card,
+.skill-card,
+.credential-card,
+.contact-panel {
+  position: relative;
+}
+
+.skill-card {
+  overflow: hidden;
+}
+
+.capability-card::after,
+.project-card::after,
+.skill-card::after,
+.credential-card::after,
+.contact-panel::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    115deg,
+    transparent 24%,
+    rgba(255, 255, 255, 0.045) 44%,
+    rgba(110, 231, 183, 0.055) 50%,
+    transparent 68%
+  );
+  content: "";
+  pointer-events: none;
+  transform: translate3d(-125%, 0, 0);
+  transition: transform 750ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.technology-tag,
+.skill-chip {
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background-color 180ms ease,
+    color 180ms ease;
+}
+
+.social-link svg,
+.primary-button svg,
+.secondary-button svg,
+.contact-button svg,
+.text-link svg,
+.nav-cta svg {
+  transition: transform 180ms ease;
+}
+
+@media (hover: hover) {
+  .capability-card:hover::after,
+  .project-card:hover::after,
+  .skill-card:hover::after,
+  .credential-card:hover::after,
+  .contact-panel:hover::after {
+    transform: translate3d(125%, 0, 0);
+  }
+
+  .technology-tag:hover,
+  .skill-chip:hover {
+    transform: translate3d(0, -2px, 0);
+    border-color: rgba(110, 231, 183, 0.2);
+    background: rgba(110, 231, 183, 0.055);
+    color: #e2e8f0;
+  }
+
+  .social-link:hover svg {
+    transform: translate3d(0, -2px, 0) scale(1.04);
+  }
+
+  .primary-button:hover svg,
+  .secondary-button:hover svg,
+  .contact-button:hover svg,
+  .text-link:hover svg,
+  .nav-cta:hover svg {
+    transform: translate3d(2px, -2px, 0);
+  }
 }
 
 @keyframes hero-enter {
@@ -179,20 +301,53 @@
   }
 }
 
+/* Intentionally avoids opacity so lower-page content never appears dimmed. */
 @keyframes section-reveal {
   from {
-    opacity: 0;
-    transform: translate3d(0, 1.5rem, 0);
+    transform: translate3d(0, var(--reveal-distance, 1.3rem), 0) scale(0.992);
   }
   to {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0) scale(1);
   }
 }
 
 @keyframes scroll-progress {
   to {
     transform: scaleX(1);
+  }
+}
+
+@keyframes gradient-drift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes availability-glow {
+  0%,
+  100% {
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.05),
+      0 0 0 rgba(110, 231, 183, 0);
+  }
+  50% {
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.07),
+      0 0 28px rgba(110, 231, 183, 0.08);
+  }
+}
+
+@keyframes orb-breathe {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(-0.75rem, 0.5rem, 0) scale(1.06);
   }
 }
 
@@ -207,29 +362,30 @@
 
 @supports (animation-timeline: view()) {
   .reveal {
-    animation: section-reveal linear both;
+    --reveal-distance: 1.2rem;
+    animation: section-reveal cubic-bezier(0.22, 1, 0.36, 1) both;
     animation-timeline: view();
-    animation-range: entry 4% cover 28%;
+    animation-range: entry 0% entry 100%;
   }
 
   .reveal-delay-1 {
-    animation-range: entry 7% cover 30%;
+    --reveal-distance: 1.45rem;
   }
 
   .reveal-delay-2 {
-    animation-range: entry 10% cover 32%;
+    --reveal-distance: 1.7rem;
   }
 
   .reveal-delay-3 {
-    animation-range: entry 13% cover 34%;
+    --reveal-distance: 1.95rem;
   }
 
   .reveal-delay-4 {
-    animation-range: entry 16% cover 36%;
+    --reveal-distance: 2.2rem;
   }
 
   .reveal-delay-5 {
-    animation-range: entry 19% cover 38%;
+    --reveal-distance: 2.45rem;
   }
 }
 
@@ -248,6 +404,12 @@
     width: 34rem;
     height: 34rem;
   }
+
+  #skills::before,
+  #skills + section::before,
+  #contact::before {
+    inset-inline: -8vw;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -259,12 +421,23 @@
   .marquee-track,
   .hero-orbit,
   .reveal,
-  .scroll-progress {
+  .scroll-progress,
+  .text-gradient,
+  .availability-pill,
+  .contact-orb {
     animation: none !important;
     transform: none !important;
   }
 
   .scroll-progress {
     display: none !important;
+  }
+
+  .capability-card::after,
+  .project-card::after,
+  .skill-card::after,
+  .credential-card::after,
+  .contact-panel::after {
+    display: none;
   }
 }
