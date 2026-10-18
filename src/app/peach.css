@@ -321,3 +321,7 @@
  .peach-site,.peach-site *{scroll-behavior:auto!important}
  .peach-site *,.peach-site *:before,.peach-site *:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
 }
+
+.peach-project-more{display:inline-flex;align-items:center;gap:8px;align-self:flex-start;border:0;background:none;color:#f16b4d;padding:10px 0 0;margin-top:9px;font-size:11px;font-weight:800;cursor:pointer;transition:gap .2s}
+.peach-project-more:hover{gap:13px}
+.peach-project-extra{border-top:1px solid #f4e2d9;padding-top:12px;margin-top:11px!important;color:#776e72!important}
