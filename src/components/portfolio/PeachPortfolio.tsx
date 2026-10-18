@@ -105,6 +105,7 @@ function SectionTitle({ label, title, note }: { label: string; title: string; no
 
 export default function PeachPortfolio() {
   const [menuOpen,setMenuOpen] = useState(false);
+  const [openProject,setOpenProject] = useState<number | null>(null);
   const reduced = useReducedMotion();
   const entrance = { initial: reduced ? false : {opacity:0,y:26}, whileInView: {opacity:1,y:0}, viewport:{once:true,amount:0.12}, transition:{duration:reduced?0:0.6,ease:"easeOut" as const} };
   const otherProjects = [
@@ -172,6 +173,8 @@ export default function PeachPortfolio() {
           <div className="peach-project-top"><span>0{i+2}</span><ExternalArrow/></div>
           <ProjectGlyph index={i}/>
           <h3>{project.title}</h3><p>{project.subtitle}</p><span className="peach-project-caption">{project.caption}</span>
+          <button type="button" className="peach-project-more" aria-expanded={openProject===i} aria-controls={"peach-project-detail-"+i} onClick={()=>setOpenProject(openProject===i?null:i)}>{openProject===i?"Show less":"Learn more"} <Arrow size={15}/></button>
+          {openProject===i&&<p className="peach-project-extra" id={"peach-project-detail-"+i}>{selectedWork[i+1].description}</p>}
         </motion.article>)}
       </div>
     </section>
