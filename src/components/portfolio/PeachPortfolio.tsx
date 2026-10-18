@@ -80,12 +80,44 @@ function ProjectGlyph({ index }: { index: number }) {
   </div>;
 }
 
+const approachSteps = [
+  {
+    eyebrow: "01 / UNDERSTAND",
+    title: "Understand the problem",
+    summary: "Start with people, workflows, and business goals.",
+    statement: "Clarity before code.",
+    detail: "I listen to stakeholders, map real requirements, and identify what a solution actually needs to achieve before thinking about implementation.",
+  },
+  {
+    eyebrow: "02 / DESIGN",
+    title: "Architect for change",
+    summary: "Build foundations that can evolve.",
+    statement: "Structure that scales.",
+    detail: "I define boundaries, contracts, and reusable patterns so systems can grow without becoming harder for teams to understand and maintain.",
+  },
+  {
+    eyebrow: "03 / BUILD",
+    title: "Engineer with care",
+    summary: "Make quality part of daily delivery.",
+    statement: "Quality, by design.",
+    detail: "I combine practical full-stack engineering with clean architecture, collaborative reviews, and automation to deliver dependable software.",
+  },
+  {
+    eyebrow: "04 / DELIVER",
+    title: "Own the outcome",
+    summary: "Stay accountable beyond the last commit.",
+    statement: "From idea to impact.",
+    detail: "I support the complete journey—from architecture and implementation to cloud delivery, stakeholder feedback, and continuous improvement.",
+  },
+] as const;
+
 function SectionTitle({ label, title, note }: { label: string; title: string; note?: string }) {
   return <div className="peach-section-title"><div><span className="peach-eyebrow">{label}</span><h2>{title}</h2></div>{note&&<p>{note}</p>}</div>;
 }
 
 export default function PeachPortfolio() {
   const [menuOpen,setMenuOpen] = useState(false);
+  const [selectedApproach, setSelectedApproach] = useState(0);
   const [openProject,setOpenProject] = useState<number | null>(null);
   const reduced = useReducedMotion();
   const entrance = { initial: reduced ? false : {opacity:0,y:26}, whileInView: {opacity:1,y:0}, viewport:{once:true,amount:0.12}, transition:{duration:reduced?0:0.6,ease:"easeOut" as const} };
@@ -100,7 +132,7 @@ export default function PeachPortfolio() {
       <div className="peach-container peach-nav-wrap">
         <a href="#top" className="peach-logo" aria-label="Mohammed Masri, back to top">Mohammed <span>Masri<span className="peach-logo-dot">.</span></span><small>Senior Full Stack Developer & Technical Lead</small></a>
         <nav id="peach-nav" className={"peach-nav"+(menuOpen?" is-open":"")} aria-label="Main navigation">
-          {[["Home","#top"],["Work","#work"],["Expertise","#expertise"],["Experience","#experience"],["About","#about"],["Contact","#contact"]].map(([label,href])=><a key={href} href={href} onClick={()=>setMenuOpen(false)}>{label}</a>)}
+          {[["Home","#top"],["Work","#work"],["Expertise","#expertise"],["Experience","#experience"],["Approach","#about"],["Contact","#contact"]].map(([label,href])=><a key={href} href={href} onClick={()=>setMenuOpen(false)}>{label}</a>)}
         </nav>
         <a className="peach-pill peach-pill-header" href={"mailto:"+profile.email}>Let's talk <Arrow size={16}/></a>
         <button aria-label={menuOpen?"Close navigation":"Open navigation"} aria-expanded={menuOpen} aria-controls="peach-nav" className="peach-menu" type="button" onClick={()=>setMenuOpen(!menuOpen)}><span/><span/><span/></button>
@@ -192,9 +224,61 @@ export default function PeachPortfolio() {
       </div>
     </section>
 
-    <section className="peach-about peach-container" id="about">
-      <motion.div {...entrance} className="peach-about-photo"><div className="peach-photo-circle"/><Image src="/assets/images/my-photo.png" alt="Mohammed Masri" fill sizes="(max-width: 800px) 100vw, 480px" className="peach-portrait-img"/><span className="peach-photo-label">MOHAMMED MASRI / DUBAI</span></motion.div>
-      <motion.div {...entrance} className="peach-about-copy"><span className="peach-eyebrow">BEYOND THE CODE</span><h2>Curiosity meets<br/><span>craft.</span></h2><p>My work lives at the intersection of software architecture, problem-solving, and collaboration. I enjoy translating complex requirements into thoughtful solutions and helping teams deliver systems that are practical to maintain.</p><p>Clean architecture, SOLID principles, and a focus on real business needs guide how I build.</p><a href={profile.linkedin} rel="noopener noreferrer" target="_blank" className="peach-inline-link">Find me on LinkedIn <ExternalArrow/></a></motion.div>
+    <section className="peach-approach-section peach-container" id="about" aria-labelledby="peach-approach-title">
+      <motion.div {...entrance} className="peach-approach-intro">
+        <div>
+          <span className="peach-eyebrow">BEHIND THE WORK / MY APPROACH</span>
+          <h2 id="peach-approach-title">Great products start<br />with <span>good questions.</span></h2>
+        </div>
+        <p>I believe thoughtful engineering is about more than choosing technologies. It is understanding people, shaping reliable systems, and owning the result from idea to release.</p>
+      </motion.div>
+      <div className="peach-approach-layout">
+        <motion.div {...entrance} className="peach-approach-canvas">
+          <div className="peach-approach-canvas-top">
+            <span>MM / ENGINEERING MINDSET</span>
+            <span>0{selectedApproach + 1} — 04</span>
+          </div>
+          <div className="peach-approach-path" aria-hidden="true">
+            <span className="peach-approach-path-line" />
+            {approachSteps.map((step, index) => (
+              <span key={step.title} className={"peach-approach-path-node" + (selectedApproach === index ? " is-active" : "")}>
+                <span>{index + 1}</span>
+              </span>
+            ))}
+          </div>
+          <div className="peach-approach-canvas-body" aria-live="polite">
+            <span className="peach-approach-current-step">{approachSteps[selectedApproach].eyebrow}</span>
+            <h3>{approachSteps[selectedApproach].statement}</h3>
+            <p>{approachSteps[selectedApproach].detail}</p>
+          </div>
+          <div className="peach-approach-canvas-bottom">
+            <span>UNDERSTAND</span>
+            <span>DESIGN</span>
+            <span>BUILD</span>
+            <span>DELIVER</span>
+          </div>
+          <span className="peach-approach-watermark" aria-hidden="true">✳</span>
+        </motion.div>
+        <motion.div {...entrance} className="peach-approach-steps" role="group" aria-label="Explore my engineering approach">
+          {approachSteps.map((step, index) => (
+            <button
+              key={step.title}
+              type="button"
+              className={"peach-approach-step" + (selectedApproach === index ? " is-active" : "")}
+              aria-pressed={selectedApproach === index}
+              onClick={() => setSelectedApproach(index)}
+            >
+              <span className="peach-approach-number">0{index + 1}</span>
+              <span className="peach-approach-step-copy">
+                <strong>{step.title}</strong>
+                <small>{step.summary}</small>
+              </span>
+              <span className="peach-approach-step-arrow" aria-hidden="true">↗</span>
+            </button>
+          ))}
+          <a className="peach-approach-link" href={profile.linkedin} rel="noopener noreferrer" target="_blank">Explore my professional journey <ExternalArrow /></a>
+        </motion.div>
+      </div>
     </section>
 
     <section className="peach-contact" id="contact"><div className="peach-container peach-contact-inner"><div><span className="peach-eyebrow">LET'S MAKE SOMETHING MEANINGFUL</span><h2>Have a complex idea?<br/><span>Let's make it clear.</span></h2></div><a href={"mailto:"+profile.email} className="peach-pill peach-pill-dark">Start a conversation <Arrow/></a><div className="peach-contact-decoration" aria-hidden="true">✳</div></div></section>
