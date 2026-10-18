@@ -10,16 +10,19 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://portfolio-green-pi-77.vercel.app"),
   title: {
     default: "Mohammed Masri | Senior Full Stack Developer & Technical Lead",
     template: "%s | Mohammed Masri",
   },
   description:
-    "Portfolio of Mohammed Masri, a Senior Full Stack Developer and Technical Lead in Dubai specializing in enterprise architecture, microservices, integrations, real-time systems, React, Node.js, and AWS.",
+    "Mohammed Masri is a Senior Full Stack Developer and Technical Lead in Dubai, delivering scalable enterprise platforms, secure integrations, and intelligent applications. Explore selected work including SEA Platform at Sharjah Education Academy.",
   keywords: [
     "Mohammed Masri",
     "Senior Full Stack Developer",
     "Technical Lead",
+    "Sharjah Education Academy",
+    "SEA Platform",
     "Enterprise Architecture",
     "React",
     "Next.js",
@@ -33,18 +36,18 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Mohammed Masri" }],
   creator: "Mohammed Masri",
+  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
-    locale: "en_US",
-    title: "Mohammed Masri | Senior Full Stack Developer & Technical Lead",
+    title: "Mohammed Masri | Building Digital Products with Clarity",
     description:
-      "Enterprise software architecture, secure integrations, real-time systems, and modern product engineering.",
+      "Senior Full Stack Developer & Technical Lead. Enterprise architecture, connected systems, and intelligent digital products.",
   },
   twitter: {
-    card: "summary_large_image",
-    title: "Mohammed Masri | Senior Full Stack Developer & Technical Lead",
+    card: "summary",
+    title: "Mohammed Masri | Building Digital Products with Clarity",
     description:
-      "Enterprise software architecture, secure integrations, real-time systems, and modern product engineering.",
+      "Senior Full Stack Developer & Technical Lead building scalable enterprise platforms and applications.",
   },
   robots: {
     index: true,
@@ -54,8 +57,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="bg-[#05080a]">
-      <body className={`${inter.variable} min-h-screen bg-[#05080a] font-sans antialiased`}>
+    <html lang="en" className="bg-[#fff9f5]">
+      <body className={inter.variable + " min-h-screen bg-[#fff9f5] font-sans antialiased"}>
         {children}
       </body>
     </html>
