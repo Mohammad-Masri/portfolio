@@ -17,7 +17,7 @@ assert.match(resume, /\{profile\.role\}/, "CV header must use shared profile tit
 assert.equal((page.match(/src="\/assets\/images\/hero-headshot\.avif"/g) || []).length, 1, "Optimized hero portrait should appear once");
 assert.doesNotMatch(page, /src="\/assets\/images\/my-photo\.png"/, "Outdated hero photo reference must be removed");
 const hero = readFileSync(new URL("../public/assets/images/hero-headshot.avif", import.meta.url));
-assert.ok(hero.length > 4000 && hero.length < 200000, "Optimized hero image should be non-empty and web-sized");
+assert.ok(hero.length >= 20000 && hero.length < 200000, "Hero image must retain enough detail for a high-quality desktop portrait");
 assert.equal(hero.toString("ascii", 4, 12), "ftypavif", "Hero image must be a genuine AVIF file");
 assert.doesNotMatch(page, /peach-float-cloud|peach-float-icon-cloud|Cloud &amp; APIs/, "Cloud icon removed from hero");
 assert.doesNotMatch(styles, /peach-float-cloud|peach-float-icon-cloud/, "Cloud CSS removed");
