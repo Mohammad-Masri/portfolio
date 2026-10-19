@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - revamp
+      - main
   pull_request:
     branches:
       - main
@@ -33,6 +34,9 @@ jobs:
 
       - name: Type check
         run: yarn tsc --noEmit
+
+      - name: Portfolio smoke checks
+        run: yarn test:portfolio
 
       - name: Production build
         run: yarn build
