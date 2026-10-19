@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { capabilities, experiences, profile, selectedWork } from "@/data/portfolio";
@@ -41,12 +41,6 @@ function HeroPhoto() {
           <svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 19 9 13l4 3L23 6"/><path d="M18 6h5v5"/></svg>
         </span>
         <span className="peach-float-copy"><strong>Architecture</strong><small>Built for scale</small></span>
-      </div>
-      <div className="peach-float-card peach-float-cloud" aria-hidden="true">
-        <span className="peach-float-icon peach-float-icon-cloud">
-          <svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"><path d="M7 20h12a5 5 0 0 0 .4-10 7 7 0 0 0-13-1.2A5.5 5.5 0 0 0 7 20Z"/></svg>
-        </span>
-        <span className="peach-float-copy"><strong>Cloud &amp; APIs</strong><small>AWS · Integrations</small></span>
       </div>
       <span className="peach-photo-caption" aria-hidden="true">BUILD · CONNECT · SCALE</span>
     </div>
@@ -111,12 +105,20 @@ const approachSteps = [
   },
 ] as const;
 
-function SectionTitle({ label, title, note }: { label: string; title: string; note?: string }) {
-  return <div className="peach-section-title"><div><span className="peach-eyebrow">{label}</span><h2>{title}</h2></div>{note&&<p>{note}</p>}</div>;
+function SectionTitle({ id, label, title, note }: { id?: string; label: string; title: string; note?: string }) {
+  return <div className="peach-section-title"><div><span className="peach-eyebrow">{label}</span><h2 id={id}>{title}</h2></div>{note&&<p>{note}</p>}</div>;
 }
 
 export default function PeachPortfolio() {
   const [menuOpen,setMenuOpen] = useState(false);
+  useEffect(() => {
+    if (!menuOpen) return;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setMenuOpen(false);
+    };
+    window.addEventListener("keydown", closeOnEscape);
+    return () => window.removeEventListener("keydown", closeOnEscape);
+  }, [menuOpen]);
   const [selectedApproach, setSelectedApproach] = useState(0);
   const [openProject,setOpenProject] = useState<number | null>(null);
   const reduced = useReducedMotion();
@@ -127,6 +129,7 @@ export default function PeachPortfolio() {
     {title:"Vidnik App",subtitle:"Content management and delivery infrastructure",caption:"NestJS · React · AWS"},
   ] as const;
   return <main className="peach-site" id="top">
+    <a href="#work" className="peach-skip-link">Skip to selected work</a>
     <div className="peach-ambient peach-ambient-one" aria-hidden="true"/><div className="peach-ambient peach-ambient-two" aria-hidden="true"/>
     <header className="peach-header">
       <div className="peach-container peach-nav-wrap">
@@ -141,7 +144,7 @@ export default function PeachPortfolio() {
 
     <section className="peach-hero peach-container" aria-labelledby="peach-hero-title">
       <div className="peach-hero-copy">
-        <motion.div initial={reduced?false:{opacity:0,y:18}} animate={{opacity:1,y:0}} transition={{duration:.7}} className="peach-location"><span className="peach-location-spark">✳</span> FULL STACK ENGINEERING · DUBAI, UAE</motion.div>
+        <motion.div initial={reduced?false:{opacity:0,y:18}} animate={{opacity:1,y:0}} transition={{duration:.7}} className="peach-location"><span className="peach-location-spark">✳</span> SOFTWARE ENGINEER · DUBAI, UAE</motion.div>
         <motion.h1 id="peach-hero-title" initial={reduced?false:{opacity:0,y:22}} animate={{opacity:1,y:0}} transition={{duration:.75,delay:.08}}>Building digital<br/>products with<br/><span>clarity.</span></motion.h1>
         <motion.p initial={reduced?false:{opacity:0,y:20}} animate={{opacity:1,y:0}} transition={{duration:.75,delay:.16}} className="peach-hero-description">I'm Mohammed, a Software Engineer experienced in full-stack development and technical leadership. I architect enterprise platforms, connect complex systems, and build meaningful digital products.</motion.p>
         <motion.div initial={reduced?false:{opacity:0,y:15}} animate={{opacity:1,y:0}} transition={{duration:.75,delay:.25}} className="peach-actions">
@@ -153,7 +156,6 @@ export default function PeachPortfolio() {
       <motion.div className="peach-hero-graphic" initial={reduced?false:{opacity:0,scale:.96}} animate={{opacity:1,scale:1}} transition={{duration:1,delay:.12}}>
         <HeroPhoto/>
         <span className="peach-art-label peach-art-label-one">IDEAS <span>→</span> PRODUCTS</span>
-        <span className="peach-art-label peach-art-label-two">BUILD · CONNECT · SCALE</span>
       </motion.div>
     </section>
 
@@ -180,14 +182,14 @@ export default function PeachPortfolio() {
     </section>
 
     <section className="peach-projects peach-container" aria-labelledby="peach-projects-heading">
-      <motion.div {...entrance}><SectionTitle label="SELECTED WORK / 02—04" title="More things I've built." note="Enterprise platforms, real-time communication, and content experiences—different challenges, the same attention to quality."/></motion.div>
+      <motion.div {...entrance}><SectionTitle id="peach-projects-heading" label="SELECTED WORK / 02—04" title="More things I've built." note="Enterprise platforms, real-time communication, and content experiences—different challenges, the same attention to quality."/></motion.div>
       <div className="peach-project-grid">
         {otherProjects.map((project,i)=><motion.article {...entrance} className="peach-project-card" key={project.title}>
-          <div className="peach-project-top"><span>0{i+2}</span><ExternalArrow/></div>
+          <div className="peach-project-top"><span>0{i+2}</span><span aria-hidden="true"><ExternalArrow/></span></div>
           <ProjectGlyph index={i}/>
           <h3>{project.title}</h3><p>{project.subtitle}</p><span className="peach-project-caption">{project.caption}</span>
           <button type="button" className="peach-project-more" aria-expanded={openProject===i} aria-controls={"peach-project-detail-"+i} onClick={()=>setOpenProject(openProject===i?null:i)}>{openProject===i?"Show less":"Learn more"} <Arrow size={15}/></button>
-          {openProject===i&&<p className="peach-project-extra" id={"peach-project-detail-"+i}>{selectedWork[i+1].description}</p>}
+          <div id={"peach-project-detail-"+i} hidden={openProject!==i} className="peach-project-extra-wrapper"><p className="peach-project-extra">{selectedWork[i+1].description}</p></div>
         </motion.article>)}
       </div>
     </section>
@@ -201,7 +203,7 @@ export default function PeachPortfolio() {
           <p>My work spans microservices, microfrontends, cloud deployments, and system-to-system connections involving platforms such as HubSpot, Creatrix, Azure Active Directory, Oracle Fusion HCM, and Canvas LMS.</p>
           <div className="peach-focus-tags"><span>Enterprise architecture</span><span>Secure integrations</span><span>Platform delivery</span></div>
         </motion.div>
-        <motion.div {...entrance} className="peach-ecosystem-visual" aria-label="Simplified conceptual view of platform application domains">
+        <motion.div {...entrance} className="peach-ecosystem-visual" role="img" aria-label="Simplified conceptual view of platform application domains">
           <span className="peach-ecosystem-title">SEA / PLATFORM DOMAINS</span>
           <div className="peach-domain-core">SEA<span>Platform</span></div>
           {["Strategy","HR","Attendance","Legal","Services","Integrations"].map((name,i)=><div key={name} className={"peach-domain peach-domain-"+i}><span>✦</span>{name}</div>)}
@@ -210,16 +212,16 @@ export default function PeachPortfolio() {
       </div>
     </section>
 
-    <section className="peach-expertise peach-container" id="expertise">
-      <motion.div {...entrance}><SectionTitle label="HOW I WORK" title="Built from first principles." note="From understanding the problem to designing systems that teams can confidently extend."/></motion.div>
+    <section className="peach-expertise peach-container" id="expertise" aria-labelledby="peach-expertise-heading">
+      <motion.div {...entrance}><SectionTitle id="peach-expertise-heading" label="HOW I WORK" title="Built from first principles." note="From understanding the problem to designing systems that teams can confidently extend."/></motion.div>
       <div className="peach-capability-grid">
         {[capabilities[0],capabilities[1],capabilities[2],capabilities[3]].map((cap,i)=><motion.article {...entrance} className="peach-capability" key={cap.title}><span className="peach-cap-num">0{i+1}</span><span className="peach-cap-icon">{["◎","↗","⌘","☼"][i]}</span><h3>{cap.title}</h3><p>{cap.description}</p></motion.article>)}
       </div>
     </section>
 
-    <section className="peach-experience" id="experience">
+    <section className="peach-experience" id="experience" aria-labelledby="peach-experience-heading">
       <div className="peach-container">
-        <motion.div {...entrance}><SectionTitle label="MY JOURNEY" title="Experience that adds up." note="Six-plus years across enterprise education, communication, media, and digital products."/></motion.div>
+        <motion.div {...entrance}><SectionTitle id="peach-experience-heading" label="MY JOURNEY" title="Experience that adds up." note="Six-plus years across enterprise education, communication, media, and digital products."/></motion.div>
         <div className="peach-timeline">{experiences.map((role,i)=><motion.article {...entrance} className="peach-timeline-row" key={role.company}><span className="peach-time-index">0{i+1} / {role.period}</span><div><h3>{role.company}</h3><p>{role.role} · {role.location}</p><small>{role.achievements[0]}</small></div><span className="peach-time-mark">↗</span></motion.article>)}</div>
       </div>
     </section>
