@@ -153,9 +153,9 @@
 .peach-time-mark{justify-self:end;color:#7C668B;font-size:23px}
 .peach-contact{background:#7C668B;color:#FFFFFF;overflow:hidden}
 .peach-contact-inner{position:relative;min-height:350px;display:flex;align-items:center;justify-content:space-between;gap:50px}
-.peach-contact .peach-eyebrow{color:#A8A2AC}
+.peach-contact .peach-eyebrow{color:#625D67}
 .peach-contact h2{font-size:clamp(41px,5.2vw,68px);font-weight:850;letter-spacing:-.075em;line-height:1.06;margin:17px 0}
-.peach-contact h2 span{color:#A8A2AC}
+.peach-contact h2 span{color:#625D67}
 .peach-pill-dark{position:relative;z-index:2;background:#424141;color:#FFFFFF;box-shadow:0 13px 24px rgba(124,102,139,.19)}
 .peach-pill-dark:hover{color:white;background:#424141}
 .peach-contact-decoration{position:absolute;pointer-events:none;right:8%;top:1%;font-size:350px;font-weight:200;color:rgba(124,102,139,.12);line-height:1}
@@ -452,8 +452,10 @@
 
 /* Consistent plum states and legible mobile copy. */
 .peach-site{--plum:#7C668B;--plum-soft:rgba(124,102,139,.10)}
-.peach-site .peach-pill-header,.peach-site .peach-pill-dark{background:#7C668B;color:#FFFFFF}
-.peach-site .peach-pill-header:hover,.peach-site .peach-pill-dark:hover{background:#7C668B;filter:brightness(.93);color:#FFFFFF}
+.peach-site .peach-pill-header{background:#7C668B;color:#FFFFFF}
+.peach-site .peach-pill-dark{background:#424141;color:#FFFFFF}
+.peach-site .peach-pill-header:hover{background:#7C668B;filter:brightness(.92);color:#FFFFFF}
+.peach-site .peach-pill-dark:hover{background:#424141;filter:brightness(.90);color:#FFFFFF}
 .peach-site .peach-nav a:hover,.peach-site .peach-footer a:hover{color:#7C668B}
 .peach-site .peach-location-spark,.peach-site .peach-domain-core,.peach-site .peach-approach-step.is-active .peach-approach-number,.peach-site .peach-approach-path-node.is-active{background:#7C668B;color:#FFFFFF}
 .peach-site .peach-module-icon,.peach-site .peach-module-icon-1,.peach-site .peach-module-icon-2,.peach-site .peach-module-icon-3,.peach-site .peach-module-icon-4,.peach-site .peach-module-icon-5{background:rgba(124,102,139,.12);color:#7C668B}
@@ -474,3 +476,9 @@
  .peach-site .peach-hero-copy{min-width:0}
  .peach-site .peach-hero-graphic{min-width:0}
 }
+
+/* Single accent, no low-contrast secondary chroma. */
+.peach-site .peach-approach-canvas-body p,.peach-site .peach-module span:last-child{color:#424141}
+.peach-site .peach-float-copy small,.peach-site .peach-illustration-disclaimer{color:#625D67}
+.peach-site .peach-contact .peach-pill-dark{background:#424141;color:#FFFFFF}
+.peach-site .peach-contact .peach-pill-dark:hover{background:#424141;filter:brightness(.90)}
