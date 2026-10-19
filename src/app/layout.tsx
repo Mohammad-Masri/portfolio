@@ -12,11 +12,11 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://portfolio-green-pi-77.vercel.app"),
   title: {
-    default: "Mohammed Masri | Senior Full Stack Developer & Technical Lead",
+    default: "Mohammed Masri | Software Engineer",
     template: "%s | Mohammed Masri",
   },
   description:
-    "Mohammed Masri is a Senior Full Stack Developer and Technical Lead in Dubai, delivering scalable enterprise platforms, secure integrations, and intelligent applications. Explore selected work including SEA Platform at Sharjah Education Academy.",
+    "Mohammed Masri is a Software Engineer in Dubai, delivering scalable enterprise platforms, secure integrations, and intelligent applications. Explore selected work including SEA Platform at Sharjah Education Academy.",
   keywords: [
     "Mohammed Masri",
     "Senior Full Stack Developer",
@@ -57,8 +57,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="bg-[#fff9f5]">
-      <body className={inter.variable + " min-h-screen bg-[#fff9f5] font-sans antialiased"}>
+    <html lang="en" className="bg-[#FAF9FB]">
+      <body className={inter.variable + " min-h-screen bg-[#FAF9FB] font-sans antialiased"}>
         {children}
       </body>
     </html>
