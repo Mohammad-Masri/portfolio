@@ -130,7 +130,7 @@ export default function PeachPortfolio() {
     <div className="peach-ambient peach-ambient-one" aria-hidden="true"/><div className="peach-ambient peach-ambient-two" aria-hidden="true"/>
     <header className="peach-header">
       <div className="peach-container peach-nav-wrap">
-        <a href="#top" className="peach-logo" aria-label="Mohammed Masri, back to top">Mohammed <span>Masri<span className="peach-logo-dot">.</span></span><small>Senior Full Stack Developer & Technical Lead</small></a>
+        <a href="#top" className="peach-logo" aria-label="Mohammed Masri, back to top">Mohammed <span>Masri<span className="peach-logo-dot">.</span></span><small>Software Engineer</small></a>
         <nav id="peach-nav" className={"peach-nav"+(menuOpen?" is-open":"")} aria-label="Main navigation">
           {[["Home","#top"],["Work","#work"],["Expertise","#expertise"],["Experience","#experience"],["Approach","#about"],["Contact","#contact"]].map(([label,href])=><a key={href} href={href} onClick={()=>setMenuOpen(false)}>{label}</a>)}
         </nav>
@@ -143,7 +143,7 @@ export default function PeachPortfolio() {
       <div className="peach-hero-copy">
         <motion.div initial={reduced?false:{opacity:0,y:18}} animate={{opacity:1,y:0}} transition={{duration:.7}} className="peach-location"><span className="peach-location-spark">✳</span> FULL STACK ENGINEERING · DUBAI, UAE</motion.div>
         <motion.h1 id="peach-hero-title" initial={reduced?false:{opacity:0,y:22}} animate={{opacity:1,y:0}} transition={{duration:.75,delay:.08}}>Building digital<br/>products with<br/><span>clarity.</span></motion.h1>
-        <motion.p initial={reduced?false:{opacity:0,y:20}} animate={{opacity:1,y:0}} transition={{duration:.75,delay:.16}} className="peach-hero-description">I'm Mohammed, a Senior Full Stack Developer and Technical Lead. I architect enterprise platforms, connect complex systems, and build meaningful digital products.</motion.p>
+        <motion.p initial={reduced?false:{opacity:0,y:20}} animate={{opacity:1,y:0}} transition={{duration:.75,delay:.16}} className="peach-hero-description">I'm Mohammed, a Software Engineer experienced in full-stack development and technical leadership. I architect enterprise platforms, connect complex systems, and build meaningful digital products.</motion.p>
         <motion.div initial={reduced?false:{opacity:0,y:15}} animate={{opacity:1,y:0}} transition={{duration:.75,delay:.25}} className="peach-actions">
           <a href="#work" className="peach-pill peach-pill-primary">Explore my work <Arrow/></a>
           <a href="/cv" className="peach-pill peach-pill-outline">View résumé <ExternalArrow/></a>
