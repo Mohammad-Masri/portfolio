@@ -16,7 +16,7 @@ export default function Contact() {
     >
       <div className="flex flex-col justify-center items-center gap-2">
         <h3 className="text-[#242A41] dark:text-white text-[24px]">
-          Let's build it together.
+          Let&apos;s build it together.
         </h3>
         <div className="flex flex-col sm:flex-row justify-between gap-5 lg:gap-10 text-[12px]">
           <Link
@@ -50,7 +50,7 @@ export default function Contact() {
         <div className="absolute bg-[#7ED9E2] dark:bg-[#583FBC] rounded-md h-full w-full top-0 left-0 -z-10 -rotate-2"></div>
         <div className="flex flex-col self-auto lg:self-start">
           <p className="text-[24px]">Try me out, risk free!</p>
-          <p className="text-[12px]">Let's build something great together</p>
+          <p className="text-[12px]">Let&apos;s build something great together</p>
         </div>
         <Link
           href={`mailto:${DATA.PROFILE.email}`}
