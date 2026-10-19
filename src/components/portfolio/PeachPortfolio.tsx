@@ -21,12 +21,11 @@ function HeroPhoto() {
       <div className="peach-photo-orbit peach-photo-orbit-two" aria-hidden="true" />
       <div className="peach-photo-frame">
         <Image
-          src="/assets/images/my-photo.png"
-          alt="Portrait of Mohammed Masri"
+          src="/assets/images/hero-headshot.webp"
+          alt="Mohammed Masri, Software Engineer"
           fill
           priority
-          quality={88}
-          sizes="(max-width: 600px) 88vw, (max-width: 900px) 75vw, (max-width: 1200px) 46vw, 600px"
+          sizes="(max-width: 600px) 75vw, (max-width: 900px) 60vw, (max-width: 1200px) 34vw, 450px"
           className="peach-photo-person"
         />
       </div>
