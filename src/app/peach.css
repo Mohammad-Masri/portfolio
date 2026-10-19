@@ -42,7 +42,6 @@
 .peach-art-label{position:absolute;color:#7C668B;font-weight:800;font-size:9px;letter-spacing:.11em}
 .peach-art-label-one{top:8%;right:7%;transform:rotate(8deg)}
 .peach-art-label-one span{color:#7C668B}
-.peach-art-label-two{left:8%;bottom:10%;transform:rotate(-7deg)}
 .peach-stats{display:grid;grid-template-columns:.77fr .93fr 1.1fr 1.15fr;border-top:1px solid rgba(124,102,139,0.20);border-bottom:1px solid rgba(124,102,139,0.20);min-height:104px;align-items:center}
 .peach-stats>div{min-height:66px;display:flex;justify-content:center;flex-direction:column;padding:4px 24px;border-right:1px solid rgba(124,102,139,0.20)}
 .peach-stats>div:first-child{padding-left:0}
@@ -327,14 +326,12 @@
 .peach-float-icon{width:39px;height:39px;border-radius:12px;display:grid;place-items:center;flex:none;font-weight:850;font-size:16px}
 .peach-float-icon-code{background:rgba(124,102,139,0.07);color:#7C668B}
 .peach-float-icon-chart{background:rgba(124,102,139,0.07);color:#7C668B}
-.peach-float-icon-cloud{background:rgba(124,102,139,0.07);color:#7C668B}
 .peach-float-icon svg{width:22px;height:22px}
 .peach-float-copy{display:flex;flex-direction:column;gap:5px}
 .peach-float-copy strong{font-size:12px;color:#7C668B;letter-spacing:-.02em;line-height:1.1}
 .peach-float-copy small{font-size:9px;font-weight:600;color:#5D5861;white-space:nowrap}
 .peach-float-code{left:0;top:24%;transform:rotate(-6deg)}
 .peach-float-analytics{right:-1%;top:12%;transform:rotate(5deg)}
-.peach-float-cloud{right:-3%;top:64%;transform:rotate(-3deg)}
 .peach-photo-caption{position:absolute;z-index:5;left:12%;bottom:6%;padding:10px 14px;border-radius:100px;background:rgba(124,102,139,.91);box-shadow:0 8px 25px rgba(124,102,139,.1);font-size:10px;color:#7C668B;font-weight:850;letter-spacing:.11em}
 @media(max-width:1120px){
  .peach-float-card{padding:9px 11px;gap:7px;min-height:56px;border-radius:14px}
@@ -362,7 +359,6 @@
  .peach-float-copy small{font-size:7px}
  .peach-float-code{left:0;top:22%}
  .peach-float-analytics{right:0;top:9%}
- .peach-float-cloud{right:0;top:61%}
  .peach-photo-caption{font-size:7px;padding:7px 9px;bottom:6%;left:7%}
 }
 @media(max-width:380px){
@@ -460,7 +456,6 @@
 .peach-site .peach-location-spark,.peach-site .peach-domain-core,.peach-site .peach-approach-step.is-active .peach-approach-number,.peach-site .peach-approach-path-node.is-active{background:#7C668B;color:#FFFFFF}
 .peach-site .peach-module-icon,.peach-site .peach-module-icon-1,.peach-site .peach-module-icon-2,.peach-site .peach-module-icon-3,.peach-site .peach-module-icon-4,.peach-site .peach-module-icon-5{background:rgba(124,102,139,.12);color:#7C668B}
 .peach-site .peach-project-glyph,.peach-site .peach-project-glyph-1,.peach-site .peach-project-glyph-2{background:rgba(124,102,139,.14);color:#7C668B}
-.peach-site .peach-float-icon-code,.peach-site .peach-float-icon-chart,.peach-site .peach-float-icon-cloud{background:rgba(124,102,139,.12);color:#7C668B}
 .peach-site .peach-contact h2 span,.peach-site .peach-contact .peach-eyebrow{color:#FFFFFF}
 .peach-site .peach-contact-decoration{color:rgba(255,255,255,.16)}
 .peach-site .peach-photo-frame{background:transparent}
@@ -489,3 +484,54 @@ body:has(.peach-site){background:#FAF9FB;color:#424141}
 html:has(.peach-site)::-webkit-scrollbar-track{background:#FAF9FB}
 html:has(.peach-site)::-webkit-scrollbar-thumb{background:rgba(124,102,139,.44);border:3px solid #FAF9FB}
 html:has(.peach-site)::-webkit-scrollbar-thumb:hover{background:#7C668B}
+
+
+/* Quality pass: keyboard navigation, responsive resilience and one consistent title palette. */
+.peach-site{overflow-x:clip;overflow-y:visible}
+.peach-site *{min-width:0}
+.peach-skip-link{position:absolute;z-index:120;top:10px;left:16px;transform:translateY(-180%);padding:12px 18px;border-radius:12px;background:#424141;color:#FFFFFF;font-size:14px;font-weight:700;box-shadow:0 7px 22px rgba(0,0,0,.18)}
+.peach-skip-link:focus-visible{transform:translateY(0)}
+.peach-site .peach-nav a{display:inline-flex;align-items:center;min-height:44px}
+.peach-site .peach-menu{touch-action:manipulation}
+.peach-site .peach-menu:focus-visible,.peach-site .peach-project-more:focus-visible,.peach-site .peach-approach-step:focus-visible{outline:3px solid #7C668B;outline-offset:3px}
+.peach-site .peach-project-more{min-height:44px;margin-top:6px;touch-action:manipulation}
+.peach-site .peach-project-extra-wrapper[hidden]{display:none!important}
+.peach-site .peach-project-extra-wrapper:not([hidden]){animation:plum-details-in 240ms ease-out both}
+@keyframes plum-details-in{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:translateY(0)}}
+.peach-site .peach-featured-card,.peach-site .peach-project-card,.peach-site .peach-approach-canvas{min-width:0}
+.peach-site .peach-hero-copy,.peach-site .peach-featured-copy{overflow-wrap:break-word}
+.peach-site .peach-stats>div{min-width:0}
+.peach-site .peach-photo-frame{isolation:isolate}
+.peach-site .peach-platform-preview{color:#424141}
+.peach-site .peach-approach-path-node.is-active{box-shadow:0 11px 24px rgba(124,102,139,.24)}
+.peach-site .peach-location-spark{background:#7C668B;color:#FFFFFF}
+.peach-site .peach-approach-link,.peach-site .peach-project-more,.peach-site .peach-inline-link{text-underline-offset:4px}
+.peach-site .peach-approach-link:hover,.peach-site .peach-inline-link:hover{text-decoration:underline}
+@media(max-width:900px){
+ .peach-site .peach-nav{max-height:calc(100svh - 84px);overflow-y:auto}
+ .peach-site .peach-menu{width:44px;height:44px;flex:none}
+ .peach-site .peach-nav a{width:100%}
+}
+@media(max-width:600px){
+ .peach-site .peach-hero{padding-top:45px}
+ .peach-site .peach-hero h1{overflow-wrap:normal;font-size:clamp(40px,10.4vw,61px)}
+ .peach-site .peach-hero-description{font-size:14px;line-height:1.77}
+ .peach-site .peach-nav{max-height:calc(100svh - 74px)}
+ .peach-site .peach-featured-copy>p,.peach-site .peach-project-card p,.peach-site .peach-focus-copy p,.peach-site .peach-timeline-row small,.peach-site .peach-approach-intro>p{font-size:13px;line-height:1.8}
+ .peach-site .peach-pill-header{min-height:44px}
+ .peach-site .peach-menu{width:44px;height:44px}
+ .peach-site .peach-stats>div{padding-block:15px}
+ .peach-site .peach-approach-step{min-height:88px}
+ .peach-site .peach-project-top>span:last-child{pointer-events:none}
+ .peach-site .peach-featured-tags span{font-size:11px}
+ .peach-site .peach-preview-sticker{pointer-events:none}
+}
+@media(max-width:370px){
+ .peach-site .peach-logo{font-size:14px}
+ .peach-site .peach-logo small{font-size:8px}
+ .peach-site .peach-hero h1{font-size:clamp(36px,10vw,42px)}
+ .peach-site .peach-location{font-size:9px}
+ .peach-site .peach-pill-header{padding:8px 10px}
+ .peach-site .peach-hero-graphic{width:100%}
+}
+@media(prefers-reduced-motion:reduce){.peach-site .peach-project-extra-wrapper:not([hidden]){animation:none}}
