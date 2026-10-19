@@ -21,7 +21,7 @@ function HeroPhoto() {
       <div className="peach-photo-orbit peach-photo-orbit-two" aria-hidden="true" />
       <div className="peach-photo-frame">
         <Image
-          src="/assets/images/hero-headshot.webp"
+          src="/assets/images/hero-headshot.avif"
           alt="Mohammed Masri, Software Engineer"
           fill
           priority
