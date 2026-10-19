@@ -14,7 +14,11 @@ assert.match(page, /Software Engineer<\/small>/, "Site header must use Software 
 assert.match(metadata, /default: "Mohammed Masri \| Software Engineer"/, "Metadata title must match");
 assert.match(metadata, /title: "Mohammed Masri \| Software Engineer"/, "Social card titles must match");
 assert.match(resume, /\{profile\.role\}/, "CV header must use shared profile title");
-assert.equal((page.match(/src="\/assets\/images\/my-photo\.png"/g) || []).length, 1, "Portrait should appear only once");
+assert.equal((page.match(/src="\/assets\/images\/hero-headshot\.avif"/g) || []).length, 1, "Optimized hero portrait should appear once");
+assert.doesNotMatch(page, /src="\/assets\/images\/my-photo\.png"/, "Outdated hero photo reference must be removed");
+const hero = readFileSync(new URL("../public/assets/images/hero-headshot.avif", import.meta.url));
+assert.ok(hero.length > 4000 && hero.length < 200000, "Optimized hero image should be non-empty and web-sized");
+assert.equal(hero.toString("ascii", 4, 12), "ftypavif", "Hero image must be a genuine AVIF file");
 assert.doesNotMatch(page, /peach-float-cloud|peach-float-icon-cloud|Cloud &amp; APIs/, "Cloud icon removed from hero");
 assert.doesNotMatch(styles, /peach-float-cloud|peach-float-icon-cloud/, "Cloud CSS removed");
 assert.match(styles, /#7C668B/i, "Plum should be the accent color");
@@ -35,7 +39,7 @@ assert.match(page, /aria-controls="peach-approach-detail"/, "Approach step butto
 assert.match(page, /aria-pressed=\{selectedApproach === index\}/, "Active approach number must be announced");
 assert.doesNotMatch(page, /peach-approach-watermark/, "Large star decoration should be removed");
 assert.doesNotMatch(styles, /peach-approach-watermark/, "Large star styling should be removed");
-assert.match(styles, /mask-image:linear-gradient\(to bottom/, "Portrait bottom needs a soft fade");
+assert.match(styles, /\.peach-photo-frame\{[^}]*mask-image:none/, "New circular avatar must not use a bottom fade");
 assert.match(styles, /\.peach-approach-path-node\{[^}]*background:#F8F6F9/, "Approach number backgrounds should conceal the dotted connector");
 assert.doesNotMatch(metadata, /import "\.\/animations\.css"/, "Avoid importing obsolete animations");
 
