@@ -482,3 +482,10 @@
 .peach-site .peach-float-copy small,.peach-site .peach-illustration-disclaimer{color:#625D67}
 .peach-site .peach-contact .peach-pill-dark{background:#424141;color:#FFFFFF}
 .peach-site .peach-contact .peach-pill-dark:hover{background:#424141;filter:brightness(.90)}
+
+/* Match browser chrome and scrollbars to the light plum portfolio without affecting /cv. */
+html:has(.peach-site){color-scheme:light;background:#FAF9FB;scrollbar-color:rgba(124,102,139,.48) #FAF9FB}
+body:has(.peach-site){background:#FAF9FB;color:#424141}
+html:has(.peach-site)::-webkit-scrollbar-track{background:#FAF9FB}
+html:has(.peach-site)::-webkit-scrollbar-thumb{background:rgba(124,102,139,.44);border:3px solid #FAF9FB}
+html:has(.peach-site)::-webkit-scrollbar-thumb:hover{background:#7C668B}
