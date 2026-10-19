@@ -137,7 +137,7 @@ export default function PeachPortfolio() {
         <nav id="peach-nav" className={"peach-nav"+(menuOpen?" is-open":"")} aria-label="Main navigation">
           {[["Home","#top"],["Work","#work"],["Expertise","#expertise"],["Experience","#experience"],["Approach","#about"],["Contact","#contact"]].map(([label,href])=><a key={href} href={href} onClick={()=>setMenuOpen(false)}>{label}</a>)}
         </nav>
-        <a className="peach-pill peach-pill-header" href={"mailto:"+profile.email}>Let's talk <Arrow size={16}/></a>
+        <a className="peach-pill peach-pill-header" href={"mailto:"+profile.email}>Let&apos;s talk <Arrow size={16}/></a>
         <button aria-label={menuOpen?"Close navigation":"Open navigation"} aria-expanded={menuOpen} aria-controls="peach-nav" className="peach-menu" type="button" onClick={()=>setMenuOpen(!menuOpen)}><span/><span/><span/></button>
       </div>
     </header>
@@ -146,7 +146,7 @@ export default function PeachPortfolio() {
       <div className="peach-hero-copy">
         <motion.div initial={reduced?false:{opacity:0,y:18}} animate={{opacity:1,y:0}} transition={{duration:.7}} className="peach-location"><span className="peach-location-spark">✳</span> SOFTWARE ENGINEER · DUBAI, UAE</motion.div>
         <motion.h1 id="peach-hero-title" initial={reduced?false:{opacity:0,y:22}} animate={{opacity:1,y:0}} transition={{duration:.75,delay:.08}}>Building digital<br/>products with<br/><span>clarity.</span></motion.h1>
-        <motion.p initial={reduced?false:{opacity:0,y:20}} animate={{opacity:1,y:0}} transition={{duration:.75,delay:.16}} className="peach-hero-description">I'm Mohammed, a Software Engineer experienced in full-stack development and technical leadership. I architect enterprise platforms, connect complex systems, and build meaningful digital products.</motion.p>
+        <motion.p initial={reduced?false:{opacity:0,y:20}} animate={{opacity:1,y:0}} transition={{duration:.75,delay:.16}} className="peach-hero-description">I&apos;m Mohammed, a Software Engineer experienced in full-stack development and technical leadership. I architect enterprise platforms, connect complex systems, and build meaningful digital products.</motion.p>
         <motion.div initial={reduced?false:{opacity:0,y:15}} animate={{opacity:1,y:0}} transition={{duration:.75,delay:.25}} className="peach-actions">
           <a href="#work" className="peach-pill peach-pill-primary">Explore my work <Arrow/></a>
           <a href="/cv" className="peach-pill peach-pill-outline">View résumé <ExternalArrow/></a>
@@ -283,7 +283,7 @@ export default function PeachPortfolio() {
       </div>
     </section>
 
-    <section className="peach-contact" id="contact"><div className="peach-container peach-contact-inner"><div><span className="peach-eyebrow">LET'S MAKE SOMETHING MEANINGFUL</span><h2>Have a complex idea?<br/><span>Let's make it clear.</span></h2></div><a href={"mailto:"+profile.email} className="peach-pill peach-pill-dark">Start a conversation <Arrow/></a><div className="peach-contact-decoration" aria-hidden="true">✳</div></div></section>
+    <section className="peach-contact" id="contact"><div className="peach-container peach-contact-inner"><div><span className="peach-eyebrow">LET&apos;S MAKE SOMETHING MEANINGFUL</span><h2>Have a complex idea?<br/><span>Let&apos;s make it clear.</span></h2></div><a href={"mailto:"+profile.email} className="peach-pill peach-pill-dark">Start a conversation <Arrow/></a><div className="peach-contact-decoration" aria-hidden="true">✳</div></div></section>
     <footer className="peach-footer peach-container"><a href="#top" className="peach-footer-brand">Mohammed <span>Masri.</span></a><span>© {new Date().getFullYear()} Mohammed Masri</span><div><a href={profile.github} target="_blank" rel="noopener noreferrer">GitHub</a><a href={profile.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="/cv">Résumé</a></div></footer>
   </main>;
 }
