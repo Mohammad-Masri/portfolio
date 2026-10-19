@@ -149,7 +149,7 @@ export default function PeachPortfolio() {
         <motion.p initial={reduced?false:{opacity:0,y:20}} animate={{opacity:1,y:0}} transition={{duration:.75,delay:.16}} className="peach-hero-description">I&apos;m Mohammed, a Software Engineer experienced in full-stack development and technical leadership. I architect enterprise platforms, connect complex systems, and build meaningful digital products.</motion.p>
         <motion.div initial={reduced?false:{opacity:0,y:15}} animate={{opacity:1,y:0}} transition={{duration:.75,delay:.25}} className="peach-actions">
           <a href="#work" className="peach-pill peach-pill-primary">Explore my work <Arrow/></a>
-          <a href="/cv" className="peach-pill peach-pill-outline">View résumé <ExternalArrow/></a>
+          <a href="/cv" className="peach-pill peach-pill-outline">View Resume <ExternalArrow/></a>
         </motion.div>
         <div className="peach-hero-note"><span className="peach-note-dot"/> ARCHITECTURE · PRODUCT ENGINEERING · LEADERSHIP</div>
       </div>
@@ -240,15 +240,23 @@ export default function PeachPortfolio() {
             <span>MM / ENGINEERING MINDSET</span>
             <span>0{selectedApproach + 1} — 04</span>
           </div>
-          <div className="peach-approach-path" aria-hidden="true">
-            <span className="peach-approach-path-line" />
+          <div className="peach-approach-path" role="group" aria-label="Select an engineering approach stage">
+            <span className="peach-approach-path-line" aria-hidden="true" />
             {approachSteps.map((step, index) => (
-              <span key={step.title} className={"peach-approach-path-node" + (selectedApproach === index ? " is-active" : "")}>
+              <button
+                key={step.title}
+                type="button"
+                className={"peach-approach-path-node" + (selectedApproach === index ? " is-active" : "")}
+                onClick={() => setSelectedApproach(index)}
+                aria-label={`Step ${index + 1}: ${step.title}`}
+                aria-pressed={selectedApproach === index}
+                aria-controls="peach-approach-detail"
+              >
                 <span>{index + 1}</span>
-              </span>
+              </button>
             ))}
           </div>
-          <div className="peach-approach-canvas-body" aria-live="polite">
+          <div className="peach-approach-canvas-body" id="peach-approach-detail" aria-live="polite">
             <span className="peach-approach-current-step">{approachSteps[selectedApproach].eyebrow}</span>
             <h3>{approachSteps[selectedApproach].statement}</h3>
             <p>{approachSteps[selectedApproach].detail}</p>
@@ -259,7 +267,6 @@ export default function PeachPortfolio() {
             <span>BUILD</span>
             <span>DELIVER</span>
           </div>
-          <span className="peach-approach-watermark" aria-hidden="true">✳</span>
         </motion.div>
         <motion.div {...entrance} className="peach-approach-steps" role="group" aria-label="Explore my engineering approach">
           {approachSteps.map((step, index) => (
@@ -284,6 +291,6 @@ export default function PeachPortfolio() {
     </section>
 
     <section className="peach-contact" id="contact"><div className="peach-container peach-contact-inner"><div><span className="peach-eyebrow">LET&apos;S MAKE SOMETHING MEANINGFUL</span><h2>Have a complex idea?<br/><span>Let&apos;s make it clear.</span></h2></div><a href={"mailto:"+profile.email} className="peach-pill peach-pill-dark">Start a conversation <Arrow/></a><div className="peach-contact-decoration" aria-hidden="true">✳</div></div></section>
-    <footer className="peach-footer peach-container"><a href="#top" className="peach-footer-brand">Mohammed <span>Masri.</span></a><span>© {new Date().getFullYear()} Mohammed Masri</span><div><a href={profile.github} target="_blank" rel="noopener noreferrer">GitHub</a><a href={profile.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="/cv">Résumé</a></div></footer>
+    <footer className="peach-footer peach-container"><a href="#top" className="peach-footer-brand">Mohammed <span>Masri.</span></a><span>© {new Date().getFullYear()} Mohammed Masri</span><div><a href={profile.github} target="_blank" rel="noopener noreferrer">GitHub</a><a href={profile.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="/cv">Resume</a></div></footer>
   </main>;
 }
