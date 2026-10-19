@@ -35,6 +35,9 @@ jobs:
       - name: Type check
         run: yarn tsc --noEmit
 
+      - name: Lint active portfolio pages
+        run: yarn lint --file src/components/portfolio/PeachPortfolio.tsx --file src/app/page.tsx --file src/app/layout.tsx --file src/app/cv/page.tsx
+
       - name: Portfolio smoke checks
         run: yarn test:portfolio
 
