@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import "./animations.css";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -39,15 +38,15 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
-    title: "Mohammed Masri | Building Digital Products with Clarity",
+    title: "Mohammed Masri | Software Engineer",
     description:
-      "Senior Full Stack Developer & Technical Lead. Enterprise architecture, connected systems, and intelligent digital products.",
+      "Software Engineer building scalable platforms, connected systems, and intelligent digital products.",
   },
   twitter: {
     card: "summary",
     title: "Mohammed Masri | Building Digital Products with Clarity",
     description:
-      "Senior Full Stack Developer & Technical Lead building scalable enterprise platforms and applications.",
+      "Software Engineer building scalable enterprise platforms and applications.",
   },
   robots: {
     index: true,
