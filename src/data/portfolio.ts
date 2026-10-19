@@ -8,7 +8,7 @@ export type CapabilityIcon =
 
 export const profile = {
   name: "Mohammed Masri",
-  role: "Senior Full Stack Developer & Technical Lead",
+  role: "Software Engineer",
   location: "Dubai, United Arab Emirates",
   email: "mouhammed.almasri.cm7@gmail.com",
   phone: "+971 55 873 0223",
