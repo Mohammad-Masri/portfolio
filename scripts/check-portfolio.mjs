@@ -25,6 +25,18 @@ assert.match(page, /id="peach-projects-heading"/, "Projects must have an accessi
 assert.match(page, /hidden=\{openProject!==i\}/, "Collapsed project details must remain in the DOM and be hidden");
 assert.match(page, /event\.key === "Escape"/, "Mobile menu needs keyboard dismissal");
 assert.match(page, /className="peach-skip-link"/, "Keyboard users need a skip link");
+
+assert.match(page, /View Resume <ExternalArrow\/>/, "Hero resume label must be View Resume");
+assert.match(page, />Resume<\/a><\/div><\/footer>/, "Footer resume label must be Resume");
+assert.doesNotMatch(page, /résumé|Résumé/i, "Use consistent English Resume capitalization");
+assert.match(page, /className="peach-approach-path" role="group"/, "Numbered approach navigation must be accessible");
+assert.match(page, /aria-label=\{\`Step \$\{index \+ 1\}: \$\{step\.title\}\`\}/, "Approach numbers need descriptive labels");
+assert.match(page, /aria-controls="peach-approach-detail"/, "Approach step buttons should point to the changing detail");
+assert.match(page, /aria-pressed=\{selectedApproach === index\}/, "Active approach number must be announced");
+assert.doesNotMatch(page, /peach-approach-watermark/, "Large star decoration should be removed");
+assert.doesNotMatch(styles, /peach-approach-watermark/, "Large star styling should be removed");
+assert.match(styles, /mask-image:linear-gradient\(to bottom/, "Portrait bottom needs a soft fade");
+assert.match(styles, /\.peach-approach-path-node\{[^}]*background:#F8F6F9/, "Approach number backgrounds should conceal the dotted connector");
 assert.doesNotMatch(metadata, /import "\.\/animations\.css"/, "Avoid importing obsolete animations");
 
 for (const id of ["top","work","expertise","experience","about","contact","sea-details"]) {
