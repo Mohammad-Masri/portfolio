@@ -17,7 +17,7 @@ export const profile = {
   github: "https://github.com/Mohammad-Masri",
   summary: [
     "I architect and deliver secure, scalable enterprise platforms that connect complex business workflows with reliable, high-performance user experiences.",
-    "Across more than six years of professional experience, I have led teams, designed microservice and microfrontend ecosystems, built real-time products, managed cloud infrastructure, and delivered critical system-to-system integrations across education, HR, CRM, and communication platforms.",
+    "With more than six years of professional experience, I work across enterprise architecture, secure system integrations, full-stack applications, real-time communication and production delivery.",
     "My engineering approach is grounded in clean architecture, SOLID principles, reusable systems, pragmatic delivery, and close collaboration with product and business stakeholders.",
   ],
 } as const;
@@ -105,7 +105,7 @@ export const experiences = [
     period: "Aug 2022 — Jan 2024",
     location: "Dubai, UAE",
     achievements: [
-      "Developed backend infrastructure for the Vidnik App CMS and content server using Node.js and NestJS.",
+      "Developed backend infrastructure for content management and delivery systems using Node.js and NestJS.",
       "Built responsive, high-fidelity React management interfaces for content operations.",
       "Managed Nginx, Docker, AWS infrastructure, and secure deployment environments.",
       "Delivered the Step By Tech and Mark Media websites with React and Next.js and owned Jest-based automated quality coverage.",
@@ -126,36 +126,25 @@ export const experiences = [
 
 export const selectedWork = [
   {
-    label: "Enterprise platform",
-    title: "Education Digital Ecosystem",
-    description:
-      "A modular multi-application architecture connecting student, employee, identity, HR, attendance, strategy, and operational workflows across the academy.",
-    tags: ["Microservices", "Microfrontends", "S2S Integrations", "AWS"],
-    impact: "Independent delivery across multiple institutional domains",
+    label: "Enterprise architecture",
+    title: "SEA Platform",
+    description: "A modular digital ecosystem at Sharjah Education Academy, connecting institutional applications through microservices, microfrontends and system integrations.",
+    tags: ["Microservices", "Microfrontends", "Integrations", "AWS"],
+    impact: "Shared platform architecture and connected institutional workflows",
   },
   {
     label: "AI-enabled product",
-    title: "Organizational Strategy Hub",
-    description:
-      "A centralized platform for goals, KPIs, objectives, and tasks, enhanced with generative AI recommendations, intelligent form filling, and action generation.",
-    tags: ["Generative AI", "Product Architecture", "Enterprise UX", "Automation"],
-    impact: "Turned strategic planning into an intelligent operational workflow",
+    title: "Strategy Hub",
+    description: "An organizational planning application connecting objectives, KPIs and tasks with AI-assisted recommendations and workflow automation.",
+    tags: ["Generative AI", "Enterprise applications", "Automation"],
+    impact: "Structured strategy planning and AI-enabled assistance",
   },
   {
     label: "Real-time communication",
-    title: "O-Connect Conferencing",
-    description:
-      "Full-stack engineering for an enterprise conferencing product with efficient GraphQL data access and low-latency voice and video communication.",
+    title: "O-Connect",
+    description: "Engineering contributions to an enterprise conferencing product with voice, video and efficient GraphQL client data access.",
     tags: ["WebRTC", "Socket.io", "GraphQL", "React", "Node.js"],
-    impact: "Responsive communication experiences at enterprise scale",
-  },
-  {
-    label: "Content platform",
-    title: "Vidnik Management Ecosystem",
-    description:
-      "Backend services, CMS workflows, content delivery infrastructure, and responsive management experiences for a modern media application.",
-    tags: ["NestJS", "React", "Docker", "Nginx", "AWS"],
-    impact: "Reliable content operations from authoring to delivery",
+    impact: "Full-stack real-time collaboration workflows",
   },
 ] as const;
 
