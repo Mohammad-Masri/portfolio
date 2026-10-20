@@ -317,8 +317,8 @@
 .peach-photo-orbit{pointer-events:none;position:absolute;border-radius:50%;border:1px solid rgba(124,102,139,.23);z-index:-1}
 .peach-photo-orbit-one{inset:0 8% 5%;transform:rotate(25deg)}
 .peach-photo-orbit-two{inset:15% -1% 13%;transform:rotate(-28deg)}
-.peach-photo-frame{position:absolute;z-index:2;top:10%;left:14%;right:auto;bottom:auto;width:72%;aspect-ratio:1;overflow:hidden;border:5px solid rgba(255,255,255,.91);border-radius:50%;background:#F5F0F8;box-shadow:0 20px 45px rgba(124,102,139,.17);-webkit-mask-image:none;mask-image:none}
-.peach-photo-person{object-fit:cover;object-position:center center;filter:none}
+
+
 .peach-photo-spark{position:absolute;z-index:3;color:#7C668B;text-shadow:0 3px 7px rgba(124,102,139,.13)}
 .peach-photo-spark-one{left:13%;top:6%;font-size:32px}
 .peach-photo-spark-two{right:9%;bottom:14%;font-size:25px}
@@ -348,7 +348,7 @@
  .peach-hero-graphic{width:min(100%,540px);min-width:0;max-width:100%;margin:14px auto 0}
  .peach-photo-stage{width:100%;aspect-ratio:1.02;min-width:0}
  .peach-photo-blob{inset:10% 6% 3%}
- .peach-photo-frame{top:10%;left:11%;right:auto;bottom:auto;width:78%;aspect-ratio:1}
+ 
  .peach-photo-spark-one{font-size:21px;left:10%;top:5%}
  .peach-photo-spark-two{font-size:18px}
  .peach-float-card{min-height:42px;padding:7px 8px;gap:6px;border-radius:11px}
@@ -457,7 +457,7 @@
 .peach-site .peach-project-glyph,.peach-site .peach-project-glyph-1,.peach-site .peach-project-glyph-2{background:rgba(124,102,139,.14);color:#7C668B}
 .peach-site .peach-contact h2 span,.peach-site .peach-contact .peach-eyebrow{color:#FFFFFF}
 .peach-site .peach-contact-decoration{color:rgba(255,255,255,.16)}
-.peach-site .peach-photo-frame{background:transparent}
+
 .peach-site .peach-photo-caption{background:rgba(255,255,255,.94);color:#7C668B}
 .peach-site .peach-approach-canvas-body h3{color:#424141}
 .peach-site .peach-approach-canvas-body p{color:#424141}
@@ -500,7 +500,7 @@ html:has(.peach-site)::-webkit-scrollbar-thumb:hover{background:#7C668B}
 .peach-site .peach-featured-card,.peach-site .peach-project-card,.peach-site .peach-approach-canvas{min-width:0}
 .peach-site .peach-hero-copy,.peach-site .peach-featured-copy{overflow-wrap:break-word}
 .peach-site .peach-stats>div{min-width:0}
-.peach-site .peach-photo-frame{isolation:isolate}
+
 .peach-site .peach-platform-preview{color:#424141}
 .peach-site .peach-approach-path-node.is-active{box-shadow:0 11px 24px rgba(124,102,139,.24)}
 .peach-site .peach-location-spark{background:#7C668B;color:#FFFFFF}
@@ -536,14 +536,14 @@ html:has(.peach-site)::-webkit-scrollbar-thumb:hover{background:#7C668B}
 @media(prefers-reduced-motion:reduce){.peach-site .peach-project-extra-wrapper:not([hidden]){animation:none}}
 
 /* Portrait now fades naturally rather than getting cut by an elliptical frame. */
-.peach-site .peach-photo-person{display:block}
-.peach-site .peach-photo-frame{background:transparent}
+
+
 .peach-site .peach-approach-path-node:hover{border-color:#7C668B;box-shadow:0 10px 21px rgba(124,102,139,.17)}
 .peach-site .peach-approach-path-node:focus-visible{outline:3px solid #7C668B;outline-offset:5px}
 .peach-site .peach-approach-path-node.is-active{background:#7C668B;border-color:#7C668B}
 .peach-site .peach-approach-path-node.is-active span{color:#FFFFFF}
 @media(max-width:600px){
- .peach-site .peach-photo-frame{top:10%;left:11%;right:auto;bottom:auto;width:78%;aspect-ratio:1}
+ 
  .peach-site .peach-approach-path-node{min-width:44px;min-height:44px}
 }
 @media(prefers-reduced-motion:reduce){
@@ -551,6 +551,40 @@ html:has(.peach-site)::-webkit-scrollbar-thumb:hover{background:#7C668B}
 }
 
 /* Square headshot asset: no lower fade or hard shoulder cutoff at any viewport. */
-.peach-site .peach-photo-frame{-webkit-mask-image:none;mask-image:none;overflow:hidden;border-radius:50%;isolation:isolate}
-.peach-site .peach-photo-person{object-fit:cover;object-position:center center;filter:none}
-@media(max-width:600px){.peach-site .peach-photo-frame{top:10%;left:11%;right:auto;bottom:auto;width:78%;aspect-ratio:1;border-width:3px}}
+
+
+@media(max-width:600px){}
+
+
+/* Original black-shirt photo: keep full transparent silhouette over the Plum halo.
+   Never clip the shoulders into a circle or apply the old hard bottom mask. */
+.peach-site .peach-photo-frame{
+  position:absolute;
+  z-index:2;
+  inset:4% 10% 0;
+  width:auto;
+  height:auto;
+  aspect-ratio:auto;
+  border:0;
+  border-radius:0;
+  overflow:visible;
+  background:transparent;
+  box-shadow:none;
+  -webkit-mask-image:none;
+  mask-image:none;
+  pointer-events:none;
+}
+.peach-site .peach-photo-person{
+  display:block;
+  object-fit:contain;
+  object-position:center bottom;
+  filter:drop-shadow(0 16px 22px rgba(124,102,139,.16));
+  -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 85%,rgba(0,0,0,.95) 89%,transparent 100%);
+  mask-image:linear-gradient(to bottom,#000 0%,#000 85%,rgba(0,0,0,.95) 89%,transparent 100%);
+}
+@media(max-width:600px){
+  .peach-site .peach-photo-frame{inset:5% 7% 0;}
+  .peach-site .peach-float-code{left:0;top:26%;}
+  .peach-site .peach-float-analytics{right:0;top:14%;}
+  .peach-site .peach-photo-caption{bottom:6%;left:16%;}
+}
