@@ -2,52 +2,47 @@ import { readFileSync } from "node:fs";
 import assert from "node:assert/strict";
 
 const read = (path) => readFileSync(new URL("../" + path, import.meta.url), "utf8");
-const page = read("src/components/portfolio/PeachPortfolio.tsx");
-const styles = read("src/app/peach.css");
-const data = read("src/data/portfolio.ts");
+const homepage = read("src/components/portfolio-v5/PortfolioV5.tsx");
+const mobileNav = read("src/components/portfolio-v5/MobileNav.tsx");
+const approach = read("src/components/portfolio-v5/ApproachSelector.tsx");
+const casePage = read("src/app/work/[slug]/page.tsx");
+const caseData = read("src/data/portfolio-v5.ts");
+const profileData = read("src/data/portfolio.ts");
+const root = read("src/app/page.tsx");
+const css = read("src/app/portfolio-v5.css");
 const metadata = read("src/app/layout.tsx");
 const resume = read("src/app/cv/page.tsx");
 
-assert.match(data, /role:\s*"Software Engineer"/, "Primary profile title should be Software Engineer");
-assert.match(page, /SOFTWARE ENGINEER · DUBAI, UAE/, "Hero overline must use Software Engineer");
-assert.match(page, /Software Engineer<\/small>/, "Site header must use Software Engineer");
+assert.match(root, /PortfolioV5/, "Portfolio 5.0 should be the active homepage");
+assert.match(root, /portfolio-v5\.css/, "Homepage should load the new CSS");
+assert.match(profileData, /role:\s*"Software Engineer"/, "Primary professional title should be Software Engineer");
 assert.match(metadata, /default: "Mohammed Masri \| Software Engineer"/, "Metadata title must match");
-assert.match(metadata, /title: "Mohammed Masri \| Software Engineer"/, "Social card titles must match");
-assert.match(resume, /\{profile\.role\}/, "CV header must use shared profile title");
-assert.equal((page.match(/src="\/assets\/images\/my-photo\.png"/g) || []).length, 1, "Original black-shirt portrait should appear once");
-assert.doesNotMatch(page, /hero-headshot\.avif/, "Generated avatar must not appear in the hero");
-const hero = readFileSync(new URL("../public/assets/images/my-photo.png", import.meta.url));
-assert.ok(hero.length > 100000, "Original full-quality portrait should be present");
-assert.deepEqual([...hero.subarray(0, 8)], [137, 80, 78, 71, 13, 10, 26, 10], "Hero image must be a genuine PNG");
-assert.equal(hero.readUInt32BE(16), 827, "Original portrait width must stay intact");
-assert.equal(hero.readUInt32BE(20), 945, "Original portrait height must stay intact");
-assert.doesNotMatch(page, /peach-float-cloud|peach-float-icon-cloud|Cloud &amp; APIs/, "Cloud icon removed from hero");
-assert.doesNotMatch(styles, /peach-float-cloud|peach-float-icon-cloud/, "Cloud CSS removed");
-assert.match(styles, /#7C668B/i, "Plum should be the accent color");
-assert.doesNotMatch(styles, /#(?:FF684B|FF704F|FF7856|FB7654|FF674B)/i, "No former peach accent values");
-assert.doesNotMatch(page, /HeroIllustration/, "Cartoon hero must not return");
-assert.doesNotMatch(page, /peach-about-photo/, "Duplicate portrait section must not return");
-assert.match(page, /id="peach-projects-heading"/, "Projects must have an accessible heading");
-assert.match(page, /hidden=\{openProject!==i\}/, "Collapsed project details must remain in the DOM and be hidden");
-assert.match(page, /event\.key === "Escape"/, "Mobile menu needs keyboard dismissal");
-assert.match(page, /className="peach-skip-link"/, "Keyboard users need a skip link");
-
-assert.match(page, /View Resume <ExternalArrow\/>/, "Hero resume label must be View Resume");
-assert.match(page, />Resume<\/a><\/div><\/footer>/, "Footer resume label must be Resume");
-assert.doesNotMatch(page, /résumé|Résumé/i, "Use consistent English Resume capitalization");
-assert.match(page, /className="peach-approach-path" role="group"/, "Numbered approach navigation must be accessible");
-assert.match(page, /aria-label=\{\`Step \$\{index \+ 1\}: \$\{step\.title\}\`\}/, "Approach numbers need descriptive labels");
-assert.match(page, /aria-controls="peach-approach-detail"/, "Approach step buttons should point to the changing detail");
-assert.match(page, /aria-pressed=\{selectedApproach === index\}/, "Active approach number must be announced");
-assert.doesNotMatch(page, /peach-approach-watermark/, "Large star decoration should be removed");
-assert.doesNotMatch(styles, /peach-approach-watermark/, "Large star styling should be removed");
-assert.match(styles, /\.peach-site \.peach-photo-frame\{[^}]*border-radius:0/, "Original silhouette must not be circularly cropped");
-assert.match(styles, /\.peach-site \.peach-photo-person\{[^}]*object-fit:contain/, "Original portrait should fit without cropping");
-assert.match(styles, /\.peach-approach-path-node\{[^}]*background:#F8F6F9/, "Approach number backgrounds should conceal the dotted connector");
-assert.doesNotMatch(metadata, /import "\.\/animations\.css"/, "Avoid importing obsolete animations");
-
-for (const id of ["top","work","expertise","experience","about","contact","sea-details"]) {
-  assert.match(page, new RegExp('id="' + id + '"'), "Missing section anchor: " + id);
+assert.match(resume, /\{profile\.role\}/, "Resume should use shared profile title");
+assert.match(homepage, /Complex systems\./, "Editorial hero headline is required");
+assert.match(homepage, /Thoughtfully engineered/, "Editorial hero tagline is required");
+assert.equal((homepage.match(/src="\/assets\/images\/my-photo\.png"/g) || []).length, 1, "Use the original black-shirt photo exactly once");
+const image = readFileSync(new URL("../public/assets/images/my-photo.png", import.meta.url));
+assert.deepEqual([...image.subarray(0,8)], [137,80,78,71,13,10,26,10], "Portrait should be a real PNG");
+assert.equal(image.readUInt32BE(16), 827);
+assert.equal(image.readUInt32BE(20), 945);
+assert.match(css, /#7C668B/, "Plum should be the accent color");
+assert.doesNotMatch(homepage, /Cloud & APIs|peach-float-cloud|HeroIllustration/, "No cartoon or cloud badge");
+assert.doesNotMatch(homepage, /Vidnik/i, "Vidnik should not be showcased");
+assert.doesNotMatch(caseData, /Vidnik/i, "Vidnik should not appear in featured case studies");
+assert.doesNotMatch(profileData, /Vidnik/i, "Shared project and experience copy should omit Vidnik");
+for(const slug of ["sea-platform","strategy-hub","o-connect"]){
+  assert.match(caseData, new RegExp('slug: "' + slug + '"'), "Expected case study: "+slug);
 }
-
-console.log("Portfolio smoke checks passed: plum theme, title consistency, accessible sections, no duplicate photo or cloud hero icon.");
+assert.equal((caseData.match(/slug: "/g)||[]).length,3,"Exactly three selected case studies are required");
+assert.match(casePage, /generateStaticParams/, "Case studies must be statically discoverable");
+assert.match(casePage, /generateMetadata/, "Case studies must expose SEO metadata");
+assert.match(casePage, /notFound\(\)/, "Unknown case studies must 404");
+assert.match(mobileNav, /aria-expanded=\{open\}/, "Mobile menu must expose expanded state");
+assert.match(mobileNav, /Escape/, "Mobile menu must support Escape");
+assert.match(approach, /aria-pressed=\{selected === index\}/, "Approach stages must expose selection state");
+assert.match(approach, /aria-controls="v5-approach-detail"/, "Approach stage buttons must control live description");
+assert.match(homepage, /v5-skip/, "Include keyboard skip navigation");
+for(const id of ["work","expertise","experience","approach","contact"]){
+  assert.match(homepage, new RegExp('id="' + id + '"'), "Missing homepage section: "+id);
+}
+console.log("Portfolio 5.0 smoke checks passed: original portrait, Software Engineer, three real projects, accessible interactions, case-study routes.");
