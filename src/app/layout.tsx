@@ -40,11 +40,11 @@ export const metadata: Metadata = {
     type: "website",
     title: "Mohammed Masri | Software Engineer",
     description:
-      "Software Engineer building scalable platforms, connected systems, and intelligent digital products.",
+      "Software Engineer focused on enterprise architecture, connected applications, full-stack delivery and reliable system integrations.",
   },
   twitter: {
     card: "summary",
-    title: "Mohammed Masri | Building Digital Products with Clarity",
+    title: "Mohammed Masri | Software Engineer",
     description:
       "Software Engineer building scalable enterprise platforms and applications.",
   },
