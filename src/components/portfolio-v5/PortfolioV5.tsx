@@ -183,7 +183,7 @@ export default function PortfolioV5() {
         <section className="v5-contact v5-shell v5-section" id="contact" aria-labelledby="v5-contact-heading">
           <div className="v5-contact-panel">
             <div className="v5-contact-copy">
-              <p className="v5-eyebrow">05 / LET'S CONNECT</p>
+              <p className="v5-eyebrow">05 / LET&apos;S CONNECT</p>
               <h2 id="v5-contact-heading">Let&apos;s engineer <em>what&apos;s next.</em></h2>
               <p>I&apos;m interested in meaningful engineering challenges, thoughtful technical discussions and opportunities to build software that solves real problems.</p>
               <a href={`mailto:${profile.email}`} className="v5-contact-email">Start a conversation <Arrow external /></a>
