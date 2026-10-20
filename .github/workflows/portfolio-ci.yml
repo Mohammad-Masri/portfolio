@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - revamp
+      - main
   pull_request:
     branches:
       - main
@@ -33,6 +34,12 @@ jobs:
 
       - name: Type check
         run: yarn tsc --noEmit
+
+      - name: Lint active portfolio pages
+        run: yarn lint --file src/components/portfolio-v5/PortfolioV5.tsx --file src/components/portfolio-v5/MobileNav.tsx --file src/components/portfolio-v5/ApproachSelector.tsx --file src/app/work/[slug]/page.tsx --file src/app/page.tsx --file src/app/layout.tsx --file src/app/cv/page.tsx
+
+      - name: Portfolio smoke checks
+        run: yarn test:portfolio
 
       - name: Production build
         run: yarn build

@@ -22,7 +22,7 @@ export default function ResumePage() {
           <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
             <div>
               <h1 className="text-4xl font-bold tracking-[-0.04em] sm:text-5xl">{profile.name}</h1>
-              <p className="mt-2 text-lg font-semibold text-emerald-700">{profile.role}</p>
+              <p className="mt-2 text-lg font-semibold text-[#7C668B]">{profile.role}</p>
             </div>
             <div className="space-y-1 text-sm text-slate-600 sm:text-right">
               <p>{profile.location}</p>
@@ -51,7 +51,7 @@ export default function ResumePage() {
                 <div className="flex flex-col justify-between gap-1 sm:flex-row sm:items-start">
                   <div>
                     <h3 className="text-lg font-bold text-slate-950">{experience.role}</h3>
-                    <p className="font-semibold text-emerald-700">{experience.company}</p>
+                    <p className="font-semibold text-[#7C668B]">{experience.company}</p>
                   </div>
                   <div className="text-sm text-slate-500 sm:text-right">
                     <p>{experience.period}</p>
@@ -82,7 +82,7 @@ export default function ResumePage() {
           <section className="resume-section break-inside-avoid">
             <h2 className="resume-heading">Education</h2>
             <h3 className="font-bold text-slate-950">{education.degree}</h3>
-            <p className="mt-1 text-emerald-700">{education.institution}</p>
+            <p className="mt-1 text-[#7C668B]">{education.institution}</p>
             <p className="mt-1 text-sm text-slate-500">{education.year} · {education.location}</p>
           </section>
           <section className="resume-section break-inside-avoid">

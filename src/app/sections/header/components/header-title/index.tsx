@@ -51,7 +51,7 @@ export default function HeaderTitle() {
       variants={variants}
     >
       <h1 className="text-[#1D2130] dark:text-white text-4xl text-left">
-        HEY! <span className="font-bold">I'm {DATA.PROFILE.firstName},</span>
+        HEY! <span className="font-bold">I&apos;m {DATA.PROFILE.firstName},</span>
         <br />
         <span className="font-bold text-[#583FBC]">
           {DATA.PROFILE.position}
